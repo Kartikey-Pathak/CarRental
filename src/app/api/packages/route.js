@@ -31,3 +31,5 @@ export async function POST(req) {
     return NextResponse.json({ error: "Failed to add package" }, { status: 500 });
   }
 }
+
+export const dynamic = "force-dynamic";
