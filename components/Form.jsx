@@ -1,13 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
-export default function Form() {
-
-  const searchParams = useSearchParams();
-  const cityFromQuery = searchParams.get("city") || "";
-
+export default function EnquiryForm({ city }) {
   const [btn, setBtn] = useState(false);
   const [today, setToday] = useState("");
   const [form, setForm] = useState({
@@ -19,19 +14,19 @@ export default function Form() {
   });
   const [errors, setErrors] = useState({});
 
-  // ✅ Set today's date (for date input min value)
+  // Set today's date
   useEffect(() => {
     setToday(new Date().toISOString().split("T")[0]);
   }, []);
 
-  // ✅ Handle input changes
-  function handleChange(e) {
+  // Handle input changes
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-  }
+  };
 
-  // ✅ Basic validation
-  function validate() {
+  // Basic validation
+  const validate = () => {
     const newErrors = {};
     if (!form.name.trim()) newErrors.name = "Full name is required";
     if (!form.phone.trim()) newErrors.phone = "Phone number is required";
@@ -40,31 +35,24 @@ export default function Form() {
     if (!form.date) newErrors.date = "Please select a tour date";
     if (!form.guests) newErrors.guests = "Please select number of guests";
     return newErrors;
-  }
+  };
 
-  // ✅ Handle submit
-  function handleSubmit(e) {
+  // Handle submit
+  const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) return;
 
-    // Build WhatsApp message
     const message = encodeURIComponent(
-      `Hello! I'd like to ask a query:\n
-*Name:* ${form.name}
-*Phone:* ${form.phone}
-${form.email ? `*Email:* ${form.email}\n` : ""}
-*Destination:*${cityFromQuery}
-*Tour Date:* ${form.date}
-*Guests:* ${form.guests}`
+      `Hello! I'd like to ask a query:\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n${form.email ? `*Email:* ${form.email}\n` : ""}*Destination:* ${city}\n*Tour Date:* ${form.date}\n*Guests:* ${form.guests}`
     );
 
     const phoneNumber = "918881509360"; // Include country code
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, "_blank");
-  }
+  };
 
   return (
     <section className="w-full flex items-center justify-center">
@@ -130,10 +118,11 @@ ${form.email ? `*Email:* ${form.email}\n` : ""}
               name="guests"
               value={form.guests}
               onChange={handleChange}
-              className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${errors.guests
+              className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${
+                errors.guests
                   ? "border-red-500"
                   : "border-gray-500 hover:border-black"
-                }`}
+              }`}
             >
               {[...Array(10)].map((_, i) => (
                 <option key={i + 1} value={i + 1}>
@@ -155,8 +144,9 @@ ${form.email ? `*Email:* ${form.email}\n` : ""}
                 setTimeout(() => setBtn(false), 1000);
               }}
               type="submit"
-              className={`cursor-pointer hover:bg-black/80 transition-all h-15 md:w-[30%] w-[70%] ${btn ? "bg-black/80" : "bg-black"
-                } text-white text-lg font-semibold rounded-3xl py-2`}
+              className={`cursor-pointer hover:bg-black/80 transition-all h-15 md:w-[30%] w-[70%] ${
+                btn ? "bg-black/80" : "bg-black"
+              } text-white text-lg font-semibold rounded-3xl py-2`}
             >
               Submit
             </button>
@@ -169,18 +159,8 @@ ${form.email ? `*Email:* ${form.email}\n` : ""}
   );
 }
 
-// ✅ Small reusable field component
-function FormField({
-  label,
-  icon,
-  name,
-  type = "text",
-  value,
-  onChange,
-  placeholder,
-  error,
-  min,
-}) {
+// Reusable field component
+function FormField({ label, icon, name, type = "text", value, onChange, placeholder, error, min }) {
   return (
     <div className="w-[80%] md:w-full flex flex-col gap-1">
       <span className="font-semibold text-gray-400 ml-4">
@@ -193,8 +173,9 @@ function FormField({
         onChange={onChange}
         placeholder={placeholder}
         min={min}
-        className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${error ? "border-red-500" : "border-gray-500 hover:border-black"
-          }`}
+        className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${
+          error ? "border-red-500" : "border-gray-500 hover:border-black"
+        }`}
       />
       {error && <p className="text-red-500 text-sm ml-4">{error}</p>}
     </div>
