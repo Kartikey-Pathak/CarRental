@@ -1,39 +1,50 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
-
 const bn1 =
-  "https://res.cloudinary.com/demon35hl/image/upload/v1761841519/Black_and_White_Modern_Travel_To_India_Presentation_1_fh7w5p.png";
-const bn2 =
-  "https://res.cloudinary.com/demon35hl/image/upload/v1761841745/bn3_w6ydc4.png";
-const bn3 =
   "https://res.cloudinary.com/demon35hl/image/upload/v1761841834/bn2_ra1jpd.jpg";
+
+const bn2 =
+  "https://res.cloudinary.com/daolgjqnn/image/upload/v1762431877/sarang-pande-IijeyJbmrec-unsplash_qseoep.jpg";
+
+const bn3 =
+  "https://res.cloudinary.com/daolgjqnn/image/upload/v1762431757/sukant-sharma-b6rs6V_9lH4-unsplash_vuyoks.jpg";
+
+const bn4 = "https://res.cloudinary.com/daolgjqnn/image/upload/v1762431939/praneet-kumar-H8dcf-v98mA-unsplash_zaklhx.jpg";
 
 export default function Img() {
   const imgRef = useRef(null);
   const textRef = useRef(null);
   const [index, setIndex] = useState(0);
-  const images = [bn1, bn2, bn3];
+  const images = [bn1, bn2, bn3, bn4];
 
   useEffect(() => {
-    const fadeIn = gsap.fromTo(
-      imgRef.current,
-      { opacity: 0, scale: 1.05 },
-      { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
-    );
+    gsap.set(imgRef.current, { opacity: 0, scale: 1.05 });
+    gsap.set(textRef.current, { opacity: 0, x: 300 });
 
-    const slideText = gsap.fromTo(
-      textRef.current,
-      { opacity: 0, x: 300 },
-      { opacity: 1, x: 0, duration: 1.2, delay: 0.2, ease: "power2.inOut" }
-    );
+    const fadeIn = gsap.to(imgRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+
+    const slideText = gsap.to(textRef.current, {
+      opacity: 1,
+      x: 0,
+      duration: 1.2,
+      delay: 0.2,
+      ease: "power2.inOut",
+    });
 
     return () => {
       fadeIn.kill();
       slideText.kill();
     };
   }, [index]);
+
 
   const handleNext = () => {
     setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -78,12 +89,17 @@ export default function Img() {
         </button>
 
         {/* Image */}
-        <img
-          ref={imgRef}
-          src={images[index]}
-          alt={`Banner ${index + 1}`}
-          className="w-full h-full object-cover"
-        />
+        {/* Image */}
+        <div ref={imgRef} className="absolute inset-0 w-full h-full">
+          <Image
+            src={images[index]}
+            alt={`Banner ${index + 1}`}
+            fill
+            className="object-cover"
+            priority={index === 0}
+          />
+        </div>
+
       </div>
     </section>
   );

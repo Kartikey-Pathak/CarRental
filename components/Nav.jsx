@@ -13,7 +13,7 @@ function Nav() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isDesktop = windowWidth > 1100;
+  const isDesktop = windowWidth > 700;
 
   // ✅ Smooth scroll handler
   const scrollToSection = (id) => {
@@ -49,7 +49,7 @@ function Nav() {
                 onClick={() => scrollToSection("domestic")}
                 className="text-white text-lg hover:text-gray-300 transition"
               >
-                Domestic Tours
+                Domestic
               </button>
             </li>
             <li>
@@ -57,7 +57,7 @@ function Nav() {
                 onClick={() => scrollToSection("international")}
                 className="text-white text-lg hover:text-gray-300 transition"
               >
-                International Tours
+                International
               </button>
             </li>
           </ul>
@@ -86,12 +86,12 @@ function Nav() {
               <ul className="menu absolute top-12 right-0 dropdown-content bg-base-100 rounded-box z-50 w-52 p-2 shadow-md">
                 <li>
                   <button onClick={() => scrollToSection("domestic")}>
-                    Domestic Tours
+                    Domestic
                   </button>
                 </li>
                 <li>
                   <button onClick={() => scrollToSection("international")}>
-                    International Tours
+                    International
                   </button>
                 </li>
               </ul>
