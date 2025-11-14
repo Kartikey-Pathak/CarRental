@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Nav2() {
+export default function Nav2({ open, setOpen }) {
   const [windowWidth, setWindowWidth] = useState(0);
   const navRef = useRef(null);
 
@@ -53,48 +53,46 @@ export default function Nav2() {
   return (
     <nav
       ref={navRef}
-      className="opacity-0 fixed top-0 z-40 w-full flex items-center justify-between h-16 bg-black/70   backdrop-blur-3xl transition-all"
+      className="opacity-0 fixed top-0 z-40 w-full flex items-center justify-between h-18 bg-white/96 transition-all"
     >
       {isDesktop ? (
         <div className="navbar w-full flex justify-between items-center px-10">
           {/* Logo */}
-          <div className="flex items-center justify-center h-[40%] w-24">
-            <img
+          <div className="flex items-center justify-center cursor-pointer h-[40%] w-24">
+            <a href="/"><img
               src="/logo.png"
               className="h-full w-full object-contain"
               alt="Logo"
             />
+            </a>
           </div>
 
           {/* Menu */}
           <ul className="flex gap-10 w-full justify-center items-center">
             <li>
-              <Link href="/" className="text-xl shrink-0 hover:text-gray-100 hover:text-[1.4rem] transition-all text-white ">
+              <Link href="/" className="text-xl font-semibold shrink-0 hover:text-gray-100 hover:text-[1.4rem] transition-all text-black">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-xl shrink-0 hover:text-gray-100 hover:text-[1.4rem] transition-all text-white ">
+              <Link href="/about" className="text-xl font-semibold shrink-0 hover:text-gray-100 hover:text-[1.4rem] transition-all text-black ">
                 About
               </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection("domestic")}
-                className="text-white  font-medium text-xl shrink-0 hover:text-gray-100 hover:text-[1.4rem] cursor-pointer transition-all"
-              >
+              <Link href="/domestic" className="text-black shrink-0  font-semibold text-xl hover:text-black/60 hover:text-[1.4rem] transition-all">
                 Domestic
-              </button>
+              </Link>
             </li>
             <li>
-               <button
-                onClick={() => scrollToSection("international")}
-                className="text-white  font-medium text-xl shrink-0 hover:text-gray-100 hover:text-[1.4rem] cursor-pointer transition-all"
-              >
+               <Link href="/international" className="text-black shrink-0  font-semibold text-xl hover:text-black/60 hover:text-[1.4rem] transition-all">
                 International
-              </button>
+              </Link>
             </li>
           </ul>
+          <div className=" h-14 w-44 rounded-2xl bg-[#FB5B32] cursor-pointer hover:bg-black transition-all ease-in-out flex items-center justify-center">
+            <h1 className=" font-semibold text-white">Book Now</h1> 
+          </div>
         </div>
       ) : (
         // ✅ Mobile Navbar
@@ -108,23 +106,15 @@ export default function Nav2() {
           </div>
 
           <div className="flex items-center gap-5">
-            <Link href="/" className="text-white text-lg font-semibold">
-              Home
-            </Link>
-            <Link href="/about" className="text-white text-lg font-semibold">
-              About
-            </Link>
+       
 
             {/* Dropdown */}
-            <details className="dropdown relative">
-              <summary className="btn bg-transparent border-none shadow-none">
-                <i className="fa-solid fa-bars text-white text-2xl"></i>
+          
+              <summary onClick={() => setOpen(true)} className="btn bg-transparent border-none shadow-none">
+                <i className="fa-solid fa-bars text-black text-2xl"></i>
               </summary>
-              <ul className="menu absolute top-12 right-0 dropdown-content bg-base-100 rounded-box z-50 w-52 p-2 shadow-md">
-                <li><Link href="/domestic">Domestic Tours</Link></li>
-                <li><Link href="/international">International Tours</Link></li>
-              </ul>
-            </details>
+            
+         
           </div>
         </div>
       )}

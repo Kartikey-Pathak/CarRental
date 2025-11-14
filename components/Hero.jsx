@@ -72,14 +72,14 @@ export default function Hero() {
       {/* Animated Heading */}
       <h1
         ref={headingRef}
-        className="text-3xl md:text-4xl text-black font-bold mb-10"
+        className="text-3xl md:text-5xl text-black font-bold mb-10"
       >
         Domestic Packages
       </h1>
 
       {/* Animated Grid */}
       <div ref={sectionRef} className="opacity-0 w-full flex justify-center">
-        <div className="w-full md:w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+        <div className="w-full md:w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center">
           {packages.length > 0 ? (
             packages.map((pkg) => (
               <Card

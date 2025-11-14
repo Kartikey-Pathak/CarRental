@@ -4,6 +4,7 @@ import React from 'react'
 import Nav from '../../../components/Nav'
 import Image from 'next/image'
 import Footer from '../../../components/Footer'
+import Side from '../../../components/Side';
 import Last from '../../../components/Last'
 
 
@@ -18,6 +19,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function page() {
     const reff = useRef(null);
+    const [open, setOpen] = useState(false);
+    
     const txtt = useRef(null);
 
     useGSAP(() => {
@@ -67,8 +70,10 @@ export default function page() {
 
     return (
         <section className='w-full  bg-[#F2F4F6] pt-2 flex items-center flex-col gap-20 justify-start'>
-            <Nav />
-            <Nav2/>
+               <Nav open={open} setOpen={setOpen} />
+            <Side open={open} setOpen={setOpen} />
+
+            <Nav2 open={open} setOpen={setOpen} />
             <div ref={txtt} className=' flex flex-col w-full items-center justify-start  '>
 
                 <div className=' grid grid-cols-1 lg:grid-cols-2 justify-items-center place-items-center gap-6 w-full mt-20'>

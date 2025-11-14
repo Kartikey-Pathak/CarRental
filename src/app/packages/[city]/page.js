@@ -7,11 +7,13 @@ import Last from "../../../../components/Last";
 import Nav from "../../../../components/Nav";
 import PolicyAccordion from "../../../../components/PolicyAccordion";
 import Nav2 from "../../../../components/Nav2";
+import Side from "../../../../components/Side";
 
 export default function InfoPage() {
   const { city } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+   const [open, setOpen] = useState(false);
 
   // ✅ Fetch package details dynamically
   useEffect(() => {
@@ -48,8 +50,10 @@ export default function InfoPage() {
 
   return (
     <>
-      <Nav />
-      <Nav2/>
+      <Nav open={open} setOpen={setOpen} />
+            <Side open={open} setOpen={setOpen} />
+
+            <Nav2 open={open} setOpen={setOpen} />
       <div className="min-h-screen bg-[#F8F9FA] pt-6 md:pt-12 w-full">
         <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8 mt-5">
           <img
@@ -86,6 +90,15 @@ export default function InfoPage() {
                 </ul>
               </div>
             ))}
+          </div>
+
+          <div className=" flex justify-end items-end">
+          <div className=" h-13 md:h-14 cursor-pointer hover:bg-[#FB5B32]/80 transition-all ease-in-out rounded-2xl flex items-center justify-center w-48 bg-[#FB5B32]">
+             <a
+              href="tel:+919557778843"
+            ><h1 className=" font-semibold text-xl">Call Now</h1></a>
+
+          </div>
           </div>
         </div>
 

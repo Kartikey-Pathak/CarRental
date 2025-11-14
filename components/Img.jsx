@@ -67,7 +67,7 @@ export default function Img() {
   };
 
   return (
-    <section className="w-full mt-0 h-[100vh] lg:h-[100vh] overflow-hidden flex items-center justify-center">
+    <section className="w-full mt-0 h-[100vh] overflow-hidden flex items-center justify-center">
       <div className="relative flex items-center justify-center h-full w-full">
         {/* Overlay Text */}
         <div

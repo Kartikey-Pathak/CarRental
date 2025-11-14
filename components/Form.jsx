@@ -62,13 +62,13 @@ export default function EnquiryForm({ city }) {
   };
 
   return (
-    <section className="w-full h-screen flex items-center justify-center md:mt-1 mt-32">
-      <div className="h-fit w-full flex flex-col gap-5 bg-[#F2F2F6] items-center ">
-        <h1 className="text-3xl m-7 text-black font-bold mt-10">Ask Query</h1>
+    <section className="w-full h-screen relative md:mt-0 mt-16 flex items-center justify-center ">
+      <div className="md:h-[26rem] h-[45rem] rounded-4xl flex  w-[90%] flex-col gap-5 bg-[#151515] items-center ">
+        <h1 className="text-xl md:text-3xl m-2 text-white font-bold mt-10">Find adventure that suits your needs</h1>
 
         <form
           onSubmit={handleSubmit}
-          className="w-full md:w-[90%] grid md:grid-cols-4 gap-5 place-items-center"
+          className="w-full md:w-[90%] grid md:grid-cols-4 gap-3 place-items-center"
         >
           {/* Full Name */}
           <FormField
@@ -121,17 +121,17 @@ export default function EnquiryForm({ city }) {
 
           {/* Guests */}
           <div className="w-[80%] md:w-full flex flex-col gap-1">
-            <span className="font-semibold text-gray-400 ml-4">
-              <i className="fa-solid fa-users text-gray-400"></i> Guests
+            <span className="font-semibold text-[#B0B0B0] ml-4">
+              <i className="fa-solid fa-users text-[#B0B0B0]"></i> Guests
             </span>
             <select
               name="guests"
               value={form.guests}
               onChange={handleChange}
-              className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${
+              className={`p-4 font-semibold text-[#B0B0B0] border-2 rounded-3xl outline-none transition-all ${
                 errors.guests
                   ? "border-red-500"
-                  : "border-gray-500 hover:border-black"
+                  : "border-[#B0B0B0] hover:border-[#B0B0B0]/80"
               }`}
             >
               {[...Array(10)].map((_, i) => (
@@ -154,8 +154,8 @@ export default function EnquiryForm({ city }) {
                 setTimeout(() => setBtn(false), 1000);
               }}
               type="submit"
-              className={`cursor-pointer hover:bg-black/80 transition-all h-15 md:w-[30%] w-[70%] ${
-                btn ? "bg-black/80" : "bg-black"
+              className={`cursor-pointer hover:bg-black/80 transition-all ease-in-out h-14 md:w-[30%] w-[70%] ${
+                btn ? "bg-black/80" : "bg-[#FB5B32]"
               } text-white text-lg font-semibold rounded-3xl py-2`}
             >
               Submit
@@ -185,8 +185,8 @@ function FormField({
 }) {
   return (
     <div className="w-[80%] md:w-full flex flex-col gap-1">
-      <span className="font-semibold text-gray-400 ml-4">
-        <i className={`fa-solid ${icon} text-gray-400`}></i> {label}
+      <span className="font-semibold text-[#B0B0B0] ml-4">
+        <i className={`fa-solid ${icon} text-[#B0B0B0]`}></i> {label}
       </span>
       <input
         type={type}
@@ -201,8 +201,8 @@ function FormField({
             inputRef.current.showPicker(); // opens calendar on click
           }
         }}
-        className={`p-4 font-semibold text-black border-2 rounded-3xl outline-none transition-all ${
-          error ? "border-red-500" : "border-gray-500 hover:border-black"
+        className={`p-3 font-semibold text-[#B0B0B0] border-2 rounded-xl outline-none transition-all ${
+          error ? "border-red-500" : "border-[#B0B0B0] hover:border-[#B0B0B0]/80"
         }`}
       />
       {error && <p className="text-red-500 text-sm ml-4">{error}</p>}

@@ -73,12 +73,12 @@ function Hero2() {
 
   return (
     <section id="international" className="flex items-center justify-center mt-14 flex-col bg-[#F2F2F6]">
-      <h1 ref={txt2} className="text-3xl md:text-4xl text-black font-bold">
+      <h1 ref={txt2} className="text-3xl md:text-5xl text-black font-bold">
         International Packages
       </h1>
 
       <div ref={ref2} className="opacity-0 flex items-center justify-center w-full">
-        <div className="w-full md:w-[90%] flex items-center justify-center place-items-center grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-15">
+        <div className="w-full md:w-[90%] flex items-center justify-center place-items-center grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-15">
           {packages.length > 0 ? (
             packages.map((pkg) => (
               <Card key={pkg._id} city={pkg.city} img={pkg.img} />

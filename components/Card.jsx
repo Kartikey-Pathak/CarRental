@@ -21,7 +21,7 @@ export default function Card({ city, img }) {
         alt={`${city} Tour`}
         width={400}
         height={400}
-        className="h-full w-full object-cover object-top object-center"
+        className="h-full w-full object-cover hover:scale-105 cursor-pointer transition-all ease-in-out object-top object-center"
       />
 
       <div className="bg-white rounded-2xl border-none outline-none absolute flex items-start justify-start flex-col bottom-0 z-10 h-[13rem] w-full">
@@ -41,7 +41,7 @@ export default function Card({ city, img }) {
           {/* Stop propagation so clicking inside doesn’t trigger main div click */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[40%] h-12 bg-black cursor-pointer hover:bg-black/80 transition-all rounded-xl flex items-center justify-center"
+            className="w-[40%] h-12 bg-black cursor-pointer hover:bg-[#FB5B32] transition-all rounded-xl flex items-center justify-center"
           >
             <Link href={`/enquiry?city=${encodeURIComponent(city)}`} className="w-full h-full flex items-center justify-center">
               <h1 className="font-semibold text-[1rem] md:text-xl text-white">Enquiry Now</h1>
@@ -50,13 +50,13 @@ export default function Card({ city, img }) {
 
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[40%] h-12 bg-[#adb5bd] cursor-pointer hover:bg-[#ced4da] transition-all rounded-xl flex items-center justify-center"
+            className="w-[40%] h-12 bg-[#FB5B32] cursor-pointer hover:bg-black transition-all rounded-xl flex items-center justify-center"
           >
             <Link
               href={`/packages/${city.toLowerCase()}`}
               className="w-full h-full flex items-center justify-center"
             >
-              <h1 className="font-semibold text-[1rem] md:text-xl text-black">View Details</h1>
+              <h1 className="font-semibold text-[1rem] md:text-xl text-white">View Details</h1>
             </Link>
           </div>
         </div>

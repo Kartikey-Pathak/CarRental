@@ -72,9 +72,9 @@ function Testimonial() {
             <h1 ref={txt5} className=" text-4xl md:text-5xl font-semibold text-black m-10">Customer Reviews</h1>
 
             <div ref={txt6} className=" w-[90%] h-full flex overflow-x-auto hide-scrollbar justify-start rounded-xl   m-5 mt-3 gap-5 ">
-                <Review group="1" url="user.jpg" name="Shubham" des="Excellent service! The package was amazing and comfortable." />
+                <Review group="1" url="user.jpg" name="Shubham" des="Excellent service! The package was amazing." />
                 <Review group="2" url="user.jpg" name="Adarsh" des="Very satisfied with the packages!" />
-                <Review group="4" url="user.jpg" name="Rudresh" des="Pleasant experience, everything mostly perfect." />
+                <Review group="4" url="user.jpg" name="Rudresh" des="Pleasant experience." />
                 <Review group="3" url="user.jpg" name="Prashant" des="Good service, clean tours, friendly staff." />
 
             </div>

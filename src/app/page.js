@@ -1,5 +1,6 @@
+"use client"
 
-
+import { useState } from "react";
 import Footer from "../../components/Footer";
 import Form from "../../components/Form";
 import Hero from "../../components/Hero";
@@ -10,28 +11,35 @@ import Nav from "../../components/Nav";
 import Nav2 from "../../components/Nav2";
 import Review from "../../components/Review";
 import Service from "../../components/Service";
+import Side from "../../components/Side";
 import Testimonial from "../../components/Testimonial";
 import Why from "../../components/Why";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
   return (
-     <section className=" w-full">
-            <Nav/>
-            <Nav2/>
-            <Img/>
-            <Form/>
-            <Hero/>
-            <Hero2/>
-            <Service/>
-            <Why/>
-            <Testimonial/>
-            <Last/>
-            <footer>
-                <Footer/>
-            </footer>
-            
-            
-            
-        </section>
+    <section className=" w-full">
+
+      <Nav open={open} setOpen={setOpen} />
+     <Side open={open} setOpen={setOpen} />
+
+      <Nav2  open={open} setOpen={setOpen} />
+
+      <Img />
+      <Form />
+      <Hero />
+      <Hero2 />
+      <Service />
+      <Why />
+      <Testimonial />
+      <Last />
+      <footer>
+        <Footer />
+      </footer>
+
+
+
+    </section>
   );
 }
