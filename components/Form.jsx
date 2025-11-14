@@ -64,7 +64,7 @@ export default function EnquiryForm({ city }) {
   return (
     <section className="w-full h-screen relative md:mt-0 mt-16 flex items-center justify-center ">
       <div className="md:h-[26rem] h-[45rem] rounded-4xl flex  w-[90%] flex-col gap-5 bg-[#151515] items-center ">
-        <h1 className="text-xl md:text-3xl m-2 text-white font-bold mt-10">Find adventure that suits your needs</h1>
+        <h1 className="text-md md:text-3xl m-2 text-white font-bold mt-10">Find adventure that suits your needs</h1>
 
         <form
           onSubmit={handleSubmit}
