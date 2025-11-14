@@ -1,6 +1,5 @@
 "use client";
 import { useRouter } from "next/navigation";
-
 import { useState, useEffect } from "react";
 
 export default function AdminPage() {
@@ -9,16 +8,19 @@ export default function AdminPage() {
 
   const [form, setForm] = useState({
     city: "",
-    type: "", // ✅ new field
+    type: "",
     img: "",
     days: "",
     des: "",
     timeline: [],
   });
+
   const [uploading, setUploading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  // Fetch all packages
+  // NEW → Track which package is being edited
+  const [editingCity, setEditingCity] = useState(null);
+
   useEffect(() => {
     fetchPackages();
   }, []);
@@ -33,7 +35,6 @@ export default function AdminPage() {
     }
   }
 
-  // Upload image to Cloudinary
   async function handleImageUpload(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -58,7 +59,6 @@ export default function AdminPage() {
     }
   }
 
-  // Add new day to timeline
   function addTimelineDay() {
     setForm({
       ...form,
@@ -69,44 +69,54 @@ export default function AdminPage() {
     });
   }
 
-  // Update timeline fields
   function updateTimelineField(index, field, value) {
     const updated = [...form.timeline];
     updated[index][field] = value;
     setForm({ ...form, timeline: updated });
   }
 
-  // Update individual point
   function updatePoint(index, pointIndex, value) {
     const updated = [...form.timeline];
     updated[index].points[pointIndex] = value;
     setForm({ ...form, timeline: updated });
   }
 
-  // Add point
   function addPoint(index) {
     const updated = [...form.timeline];
     updated[index].points.push("");
     setForm({ ...form, timeline: updated });
   }
 
-  // Remove point
   function removePoint(dayIndex, pointIndex) {
     const updated = [...form.timeline];
     updated[dayIndex].points.splice(pointIndex, 1);
     setForm({ ...form, timeline: updated });
   }
 
-  // Remove entire day
   function removeDay(index) {
     if (!confirm("Are you sure you want to remove this day?")) return;
     const updated = [...form.timeline];
     updated.splice(index, 1);
-    updated.forEach((day, i) => (day.day = i + 1)); // reorder
+    updated.forEach((day, i) => (day.day = i + 1));
     setForm({ ...form, timeline: updated });
   }
 
-  // Submit form
+  // NEW → Load existing package into the form for editing
+  function startEdit(pkg) {
+    setEditingCity(pkg.city); // track original city
+    setForm({
+      city: pkg.city,
+      type: pkg.type,
+      img: pkg.img,
+      days: pkg.days,
+      des: pkg.des,
+      timeline: pkg.timeline,
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // CREATE + UPDATE
   async function handleSubmit() {
     try {
       if (!form.city.trim()) {
@@ -114,23 +124,38 @@ export default function AdminPage() {
         return;
       }
       if (!form.type.trim()) {
-        alert("Please select package type (Domestic or International).");
+        alert("Please select package type.");
         return;
       }
       if (!form.img.trim()) {
-        alert("Please upload an image for this package.");
+        alert("Please upload an image.");
         return;
       }
 
       setSubmitting(true);
 
-      await fetch("/api/packages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      if (editingCity) {
+        // UPDATE existing package
+        await fetch(`/api/packages/${editingCity}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
 
+        alert("Package updated successfully!");
+      } else {
+        // CREATE new package
+        await fetch("/api/packages", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+      }
+
+      // Reset form
+      setEditingCity(null);
       setForm({ city: "", type: "", img: "", days: "", des: "", timeline: [] });
+
       fetchPackages();
     } catch (err) {
       console.error("Error saving package:", err);
@@ -140,7 +165,6 @@ export default function AdminPage() {
     }
   }
 
-  // Delete entire package
   async function deletePackage(city) {
     try {
       await fetch(`/api/packages/${city}`, { method: "DELETE" });
@@ -149,10 +173,11 @@ export default function AdminPage() {
       console.error("Error deleting package:", err);
     }
   }
+
   const handleLogout = async () => {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
-      router.push("/login"); // redirect to login page
+      router.push("/login");
     } catch (err) {
       console.error("Logout failed:", err);
     }
@@ -160,15 +185,21 @@ export default function AdminPage() {
 
   return (
     <div className="p-8 space-y-10 bg-gray-50 min-h-screen">
-         
-         <button   onClick={handleLogout} type="button" className=" cursor-pointer transition-all h-12 w-32 bg-black font-semibold  border-2 border-white rounded-xl text-red-400"><h1 className=" text-red-500 font-semibold">LogOut</h1></button>
-       
+      <button
+        onClick={handleLogout}
+        type="button"
+        className="cursor-pointer transition-all h-12 w-32 bg-black font-semibold border-2 border-white rounded-xl text-red-400"
+      >
+        <h1 className="text-red-500 font-semibold">LogOut</h1>
+      </button>
+
       <h1 className="text-3xl font-bold text-black">Admin — Manage Tour Packages</h1>
 
-
-      {/* Add new package form */}
+      {/* FORM */}
       <div className="border p-5 rounded-lg shadow-lg bg-white">
-        <h2 className="text-xl font-semibold mb-4 text-black">Add New Package</h2>
+        <h2 className="text-xl font-semibold mb-4 text-black">
+          {editingCity ? "Edit Package" : "Add New Package"}
+        </h2>
 
         <div className="grid grid-cols-2 gap-4">
           <input
@@ -178,7 +209,6 @@ export default function AdminPage() {
             className="border p-2 rounded border-black text-black"
           />
 
-          {/* ✅ Type selection */}
           <select
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
@@ -189,7 +219,6 @@ export default function AdminPage() {
             <option value="international">International</option>
           </select>
 
-          {/* Upload image */}
           <div>
             <input
               type="file"
@@ -213,6 +242,7 @@ export default function AdminPage() {
             onChange={(e) => setForm({ ...form, days: e.target.value })}
             className="border p-2 rounded border-black text-black"
           />
+
           <textarea
             placeholder="Description"
             value={form.des}
@@ -221,7 +251,7 @@ export default function AdminPage() {
           />
         </div>
 
-        {/* Timeline */}
+        {/* TIMELINE */}
         <div className="mt-6 space-y-6">
           <h3 className="text-lg font-bold text-black">Timeline</h3>
 
@@ -246,6 +276,7 @@ export default function AdminPage() {
               />
 
               <h5 className="font-semibold mb-1">Points:</h5>
+
               {day.points.map((p, j) => (
                 <div key={j} className="flex items-center gap-2 mb-2">
                   <input
@@ -254,6 +285,7 @@ export default function AdminPage() {
                     onChange={(e) => updatePoint(i, j, e.target.value)}
                     className="border p-2 rounded w-full border-black text-black"
                   />
+
                   <button
                     type="button"
                     onClick={() => removePoint(i, j)}
@@ -263,6 +295,7 @@ export default function AdminPage() {
                   </button>
                 </div>
               ))}
+
               <button
                 type="button"
                 onClick={() => addPoint(i)}
@@ -289,11 +322,17 @@ export default function AdminPage() {
             submitting ? "bg-gray-400" : "bg-green-600 hover:bg-green-700"
           }`}
         >
-          {submitting ? "Saving..." : "Save Package"}
+          {submitting
+            ? editingCity
+              ? "Updating..."
+              : "Saving..."
+            : editingCity
+            ? "Update Package"
+            : "Save Package"}
         </button>
       </div>
 
-      {/* Existing packages */}
+      {/* EXISTING PACKAGES */}
       <div>
         <h2 className="text-xl font-semibold mb-4 text-black">Existing Packages</h2>
         <ul className="space-y-3">
@@ -309,7 +348,9 @@ export default function AdminPage() {
                     {pkg.type ? pkg.type.charAt(0).toUpperCase() + pkg.type.slice(1) : "N/A"}
                   </span>
                 </p>
+
                 <p className="text-sm text-gray-600">{pkg.days}</p>
+
                 {pkg.img && (
                   <img
                     src={pkg.img}
@@ -318,12 +359,22 @@ export default function AdminPage() {
                   />
                 )}
               </div>
-              <button
-                onClick={() => deletePackage(pkg.city)}
-                className="text-red-500 hover:text-red-700 cursor-pointer transition-all"
-              >
-                Delete
-              </button>
+
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => startEdit(pkg)}
+                  className="text-blue-500 hover:text-blue-700 cursor-pointer transition-all"
+                >
+                  Edit
+                </button>
+
+                <button
+                  onClick={() => deletePackage(pkg.city)}
+                  className="text-red-500 hover:text-red-700 cursor-pointer transition-all"
+                >
+                  Delete
+                </button>
+              </div>
             </li>
           ))}
         </ul>
