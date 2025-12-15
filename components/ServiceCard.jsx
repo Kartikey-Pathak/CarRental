@@ -1,6 +1,7 @@
 import { UserCheck, Briefcase, Car, Plane } from "lucide-react";
 import { useRef } from "react";
 import gsap from "gsap";
+import Link from "next/link";
 
 export default function ServiceCards() {
 
@@ -49,7 +50,7 @@ export default function ServiceCards() {
   return (
     <>
       {/* Card 1 */}
-      <div
+       <Link href="/rent" ><div
         onMouseOver={() => over(bg1.current, content1.current)}
         onMouseOut={() => out(bg1.current, content1.current)}
         className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
@@ -70,9 +71,10 @@ export default function ServiceCards() {
           </div>
         </div>
       </div>
+      </ Link>
 
       {/* Card 2 */}
-      <div
+      <Link href="/rent" ><div
         onMouseOver={() => over(bg2.current, content2.current)}
         onMouseOut={() => out(bg2.current, content2.current)}
         className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
@@ -93,9 +95,10 @@ export default function ServiceCards() {
           </div>
         </div>
       </div>
+      </Link> 
 
       {/* Card 3 */}
-      <div
+     <Link href="/rent" ><div
         onMouseOver={() => over(bg3.current, content3.current)}
         onMouseOut={() => out(bg3.current, content3.current)}
         className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
@@ -116,9 +119,10 @@ export default function ServiceCards() {
           </div>
         </div>
       </div>
+      </Link>
 
       {/* Card 4 */}
-      <div
+      <Link href="/rent" ><div
         onMouseOver={() => over(bg4.current, content4.current)}
         onMouseOut={() => out(bg4.current, content4.current)}
         className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
@@ -138,7 +142,7 @@ export default function ServiceCards() {
             </button>
           </div>
         </div>
-      </div>
+      </div></Link>
     </>
   );
 }

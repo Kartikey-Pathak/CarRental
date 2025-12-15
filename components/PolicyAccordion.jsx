@@ -1,70 +1,88 @@
 "use client";
 
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-function PolicyAccordion() {
-  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+function PolicyAccordion(){
+  return(
 
-  const sections = [
-    {
-      title: "Cancellation Policy",
-      content: (
-        <ul className="list-disc pl-6 space-y-1 text-gray-700">
-          <li>
-            Cancellation made 30 days prior to travel: full refund (excluding service charges).
-          </li>
-          <li>Cancellation within 15–30 days: 50% refund.</li>
-          <li>Cancellation within 15 days of departure: no refund.</li>
-        </ul>
-      ),
-    },
-    {
-      title: "Terms & Conditions",
-      content: (
-        <ul className="list-disc pl-6 space-y-1 text-gray-700">
-          <li>Prices are based on standard room category; upgrades available at extra cost.</li>
-          <li>
-            Any additional expenses due to delays, flight cancellation, natural calamities,
-            or political issues must be borne by the traveler.
-          </li>
-          <li>
-            The company holds no responsibility for loss of baggage, valuables, or travel documents.
-          </li>
-        </ul>
-      ),
-    },
-  ];
+<section className="w-full py-20 bg-white flex items-center justify-center ">
+      <div className="max-w-4xl px-6 w-full">
 
-  return (
-    <div className="max-w-4xl mx-auto mt-8 space-y-4">
-      {sections.map((section, index) => (
-        <div
-          key={index}
-          className="border rounded-lg bg-white shadow-sm"
-        >
-          <button
-            onClick={() => toggleAccordion(index)}
-            className="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 hover:bg-gray-50"
-          >
-            {section.title}
-            <i
-              className={`fa-solid fa-chevron-${openIndex === index ? "up" : "down"} text-gray-600 transition-all`}
-            ></i>
-          </button>
+        <p className="text-[#FF3600] font-semibold mb-4">
+          * Rental Conditions
+        </p>
 
-          {openIndex === index && (
-            <div className="p-4 border-t text-gray-700 absolute z-50 bg-white max-w-4xl md:max-w-xl    animate-fadeIn">
-              {section.content}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
+        <h2 className="text-4xl font-bold text-black mb-12">
+          Policies and agreement
+        </h2>
+
+        <Accordion type="single" collapsible className="space-y-4  ">
+
+          <AccordionItem value="1" className="border  rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Driver&apos;s License Requirements
+            </AccordionTrigger>
+            <AccordionContent>
+              A valid driving license with at least one year of experience is
+              required to rent a vehicle.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="2" className="border rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Insurance and Coverage Policy
+            </AccordionTrigger>
+            <AccordionContent>
+              All rentals include basic insurance coverage. Optional upgrades
+              are available.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="3" className="border rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Available Payment Methods
+            </AccordionTrigger>
+            <AccordionContent>
+              We accept UPI, cards, net banking, and cash payments.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="4" className="border rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Cancellation and Modification Policy
+            </AccordionTrigger>
+            <AccordionContent>
+              Free cancellation up to 24 hours before pickup time.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="5" className="border rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Smoking and Pet Policy
+            </AccordionTrigger>
+            <AccordionContent>
+              Smoking is not allowed. Pets are permitted only in selected cars.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="6" className="border rounded-2xl px-4">
+            <AccordionTrigger className="text-lg cursor-pointer font-semibold">
+              Minimum Age Requirement
+            </AccordionTrigger>
+            <AccordionContent>
+              The minimum age to rent a car is 21 years.
+            </AccordionContent>
+          </AccordionItem>
+
+        </Accordion>
+      </div>
+    </section>
+     )
 }
-
-export default PolicyAccordion;
+export default PolicyAccordion

@@ -1,9 +1,10 @@
 import { Phone, Calendar } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Card({ img, name, location, tag, rates }) {
   return (
-    <div onMouseEnter={() => window.cursor?.enter()}
+     <Link href={`/cars/${name}`} className="block"><div onMouseEnter={() => window.cursor?.enter()}
       onMouseLeave={() => window.cursor?.leave()} className="max-w-md w-[20rem] md:w-[80rem] cursor-pointer  lg:w-[25rem] xl:w-[23rem] bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
       <div className="relative">
         <div className="relative w-full h-56 bg-gradient-to-br from-blue-50 to-blue-100">
@@ -65,6 +66,6 @@ export default function Card({ img, name, location, tag, rates }) {
           </a>
         </div>
       </div>
-    </div>
+    </div></Link>
   );
 }

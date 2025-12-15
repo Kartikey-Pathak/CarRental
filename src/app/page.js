@@ -13,8 +13,9 @@ import Review from "../../components/Review";
 import Service from "../../components/Service";
 import Side from "../../components/Side";
 import Testimonial from "../../components/Testimonial";
-import Why from "../../components/Why";
-import EnquiryForm2 from "../../components/Form2";
+
+import Section from "../../components/Section";
+
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -34,9 +35,12 @@ export default function Home() {
 
     
       <Any />
+
+      <Section/>
       
     
-      <Why />
+     
+      
       <Testimonial />
       <Last />
       <footer>
