@@ -1,64 +1,68 @@
-"use client";
-
+import { Phone, Calendar } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
-export default function Card({ city, img }) {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push(`/packages/${city.toLowerCase()}`);
-  };
-
+export default function Card({ img, name, location, tag, rates }) {
   return (
-    <div
-      onClick={handleClick}
-      className="hover:shadow-xl hover:scale-102 border-none outline-none cursor-pointer transition-all relative bg-black flex-shrink-0 h-[32rem] w-[22rem] md:w-[23rem] xl:w-[25rem] border-[#F2F2F6] overflow-hidden rounded-2xl flex"
-    >
-      <Image
-        src={img}
-        alt={`${city} Tour`}
-        width={400}
-        height={400}
-        className="h-full w-full object-cover hover:scale-105 cursor-pointer transition-all ease-in-out object-top object-center"
-      />
-
-      <div className="bg-white rounded-2xl border-none outline-none absolute flex items-start justify-start flex-col bottom-0 z-10 h-fit pb-5 w-full">
-        <h1 className="font-bold text-xl text-black m-5">{`${city} Tour Package`}</h1>
-        <h2 className="font-semibold text-xl text-gray-500 ml-5">{city}</h2>
-
-        <div className="flex flex-row w-full items-center">
-          <h2 className="font-bold text-xl text-gray-900 ml-5">Included</h2>
-          <div className="flex flex-row gap-4 items-center justify-center">
-            <i className="font-bold text-2xl text-gray-500 fa-solid fa-utensils ml-10"></i>
-            <i className="fa-solid fa-taxi font-bold text-2xl text-gray-500"></i>
-            <i className="fa-solid fa-hotel font-bold text-2xl text-gray-500"></i>
-          </div>
+    <div onMouseEnter={() => window.cursor?.enter()}
+      onMouseLeave={() => window.cursor?.leave()} className="max-w-md w-[20rem] md:w-[80rem] cursor-pointer  lg:w-[25rem] xl:w-[23rem] bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+      <div className="relative">
+        <div className="relative w-full h-56 bg-gradient-to-br from-blue-50 to-blue-100">
+          <Image
+            onMouseEnter={() => window.cursor?.enter()}
+            onMouseLeave={() => window.cursor?.leave()}
+            src={img || "/no.jpg"}
+            alt={name || "Car"}
+            fill
+            className="object-contain hover:cursor-pointer hover:scale-105 ease-in-out  transition-all"
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
         </div>
 
-        <div className="flex flex-row items-center gap-4 justify-center mt-3 w-full">
-          {/* Stop propagation so clicking inside doesn’t trigger main div click */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="w-[40%] h-12 bg-black cursor-pointer hover:bg-[#FB5B32] transition-all rounded-xl flex items-center justify-center"
-          >
-            <Link href={`/enquiry?city=${encodeURIComponent(city)}`} className="w-full h-full flex items-center justify-center">
-              <h1 className="font-semibold text-[1rem] md:text-xl text-white">Enquiry Now</h1>
-            </Link>
-          </div>
+        {tag && (
+          <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+            {tag}
+          </span>
+        )}
+      </div>
 
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="w-[40%] h-12 bg-[#FB5B32] cursor-pointer hover:bg-black transition-all rounded-xl flex items-center justify-center"
-          >
-            <Link
-              href={`/packages/${city.toLowerCase()}`}
-              className="w-full h-full flex items-center justify-center"
+      <div className="p-5">
+        <h2 className="text-xl font-bold text-gray-800">
+          {name || "Swift Dzire"}
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">
+          {location || "Varanasi"}
+        </p>
+
+        <div className="space-y-3">
+          {(rates || [
+            { label: "Airport Transfer", price: "₹900" },
+            { label: "8 Hrs / 80 KM", price: "₹1800" },
+            { label: "Full Day / 200 KM", price: "₹2200" },
+            { label: "Outstation (Min. 250km/day)", price: "₹11/km" },
+          ]).map((item, index) => (
+            <div
+              key={index}
+              className="flex justify-between items-center text-sm border-b last:border-none pb-2"
             >
-              <h1 className="font-semibold text-[1rem] md:text-xl text-white">View Details</h1>
-            </Link>
-          </div>
+              <span className="text-gray-600">{item.label}</span>
+              <span className="font-semibold text-gray-800">
+                {item.price}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex gap-3">
+          <button className="cursor-pointer hover:bg-indigo-600 active:bg-indigo-600 flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition">
+            <Calendar size={18} />
+            Book Now
+          </button>
+
+          <a href="tel:+918090579753">
+            <button className="h-full cursor-pointer active:bg-gray-100 flex items-center justify-center px-4 rounded-xl border border-gray-200 hover:bg-gray-100 transition">
+              <Phone className="text-gray-700" size={18} />
+            </button>
+          </a>
         </div>
       </div>
     </div>

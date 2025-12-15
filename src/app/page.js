@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import Form from "../../components/Form";
-import Hero from "../../components/Hero";
+import Any from "../../components/Any";
 import Hero2 from "../../components/Hero2";
-import Img from "../../components/Img";
+import Hero from "../../components/Hero";
 import Last from "../../components/Last";
 import Nav from "../../components/Nav";
 import Nav2 from "../../components/Nav2";
@@ -24,14 +24,18 @@ export default function Home() {
 
       <Nav open={open} setOpen={setOpen} />
       <Side open={open} setOpen={setOpen} />
+      {/* <Nav2 open={open} setOpen={setOpen} /> */}
 
-      <Nav2 open={open} setOpen={setOpen} />
-
-      <Img />
-      <EnquiryForm2/>
       <Hero />
-      <Hero2 />
-      <Service />
+      
+        <Service />
+
+
+
+    
+      <Any />
+      
+    
       <Why />
       <Testimonial />
       <Last />

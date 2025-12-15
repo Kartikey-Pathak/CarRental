@@ -1,5 +1,14 @@
 import Script from "next/script";
 import "./globals.css";
+import { Open_Sans } from "next/font/google";
+import Cursor from "../../components/Cursor";
+import SmoothScroll from "../../components/SmoothScroll";
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-open-sans",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Travel Explores | Discover Beautiful Places",
@@ -51,8 +60,10 @@ export default function RootLayout({ children }) {
       </head>
 
 
-      <body className="bg-[#F2F2F6]">
+      <body className={`bg-white ${openSans.variable}  scroll-smooth font-opensans`}>
         {children}
+        <Cursor/>
+        <SmoothScroll/>
 
         {/* ✅ JS version of Font Awesome (always works) */}
         <Script

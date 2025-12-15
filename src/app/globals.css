@@ -1,9 +1,50 @@
+@config "../../tailwind.config.js";
+
 @import "tailwindcss";
 
 @plugin "daisyui";
 
-
-body {
-
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'BBH Bogle';
+  src: url('/fonts/BBHBogle-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'BBH Bogle';
+  src: url('/fonts/BBHBogle-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Ubuntu Regular */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ubuntu Bold */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Optional Tailwind classes */
+.font-ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* Optional: Tailwind class for convenience */
+.font-bogle {
+  font-family: 'BBH Bogle', sans-serif;
+}
+

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "../../../lib/mongodb";
-import Package from "../../../models/Package";
+import Package from "../../../models/Car";
 
 // -------------------- DELETE --------------------
 export async function DELETE(req, { params }) {

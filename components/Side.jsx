@@ -36,12 +36,12 @@ export default function Side({ open, setOpen }) {
                         About
                     </Link>
 
-                    <Link onClick={() => setOpen(false)} href="/domestic" className="text-2xl hover:text-gray-500 transition-all">
-                        Domestic
+                    <Link onClick={() => setOpen(false)} href="/rent" className="text-2xl hover:text-gray-500 transition-all">
+                        Rent a Car
                     </Link>
 
-                    <Link onClick={() => setOpen(false)} href="/international" className="text-2xl hover:text-gray-500 transition-all">
-                        International
+                    <Link onClick={() => setOpen(false)} href="/contact" className="text-2xl hover:text-gray-500 transition-all">
+                        Contact Us
                     </Link>
                 </div>
             </div>

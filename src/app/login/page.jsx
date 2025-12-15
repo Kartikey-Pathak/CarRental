@@ -1,11 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function Login() {
+export default function Login({ onLoginSuccess }) {
   const [form, setForm] = useState({ name: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleLogin = async () => {
     if (!form.name || !form.password) return alert("Fill all fields!");
@@ -18,8 +16,10 @@ export default function Login() {
       });
 
       const data = await res.json();
-      if (res.ok) router.push("/admin"); // redirect to admin
-      else alert(data.message);
+      if (res.ok) {
+        // Notify parent Admin component
+        if (onLoginSuccess) onLoginSuccess();
+      } else alert(data.message);
     } catch (err) {
       console.error(err);
       alert("Login failed");
@@ -37,14 +37,14 @@ export default function Login() {
           placeholder="Username"
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="border-2 outline-none p-2 rounded w-full mb-10 text-black border-black"
+          className="border-2 outline-none p-2 rounded w-full mb-4 text-black border-black"
         />
         <input
           type="password"
           placeholder="Password"
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
-          className="border-2 p-2 rounded outline-none w-full mb-10 text-black border-black"
+          className="border-2 p-2 rounded outline-none w-full mb-4 text-black border-black"
         />
         <button
           onClick={handleLogin}

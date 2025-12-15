@@ -5,43 +5,11 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ServiceCard from './ServiceCard';
+import Card from './Card';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
-  {
-    title: "Domestic Packages",
-    img: "https://res.cloudinary.com/demon35hl/image/upload/f_auto,q_auto,w_600/v1761841287/india_prl1mv.jpg",
-  },
-  {
-    title: "International Packages",
-    img: "https://res.cloudinary.com/demon35hl/image/upload/f_auto,q_auto,w_600/v1761841264/Inter_nbsowm.jpg",
-  },
-  {
-    title: "Cabs",
-    img: "https://res.cloudinary.com/demon35hl/image/upload/f_auto,q_auto,w_600/v1761841233/cab_srzzvm.jpg",
-  },
-  {
-    title: "VISA/Flights",
-    img: "https://res.cloudinary.com/demon35hl/image/upload/f_auto,q_auto,w_600/v1761841244/visa_cvvxsm.jpg",
-  },
-  {
-    title: "Hotels",
-    img: "https://res.cloudinary.com/daolgjqnn/image/upload/f_auto,q_auto,w_600/v1762432227/vojtech-bruzek-Yrxr3bsPdS0-unsplash_gnnufs.jpg",
-  },
-  {
-    title: "Resorts",
-    img: "https://res.cloudinary.com/daolgjqnn/image/upload/f_auto,q_auto,w_600/v1762432297/arkady-lukashov-ysN7dkne160-unsplash_jtvq3x.jpg",
-  },
-  {
-    title: "Holiday Packages",
-    img: "https://res.cloudinary.com/daolgjqnn/image/upload/f_auto,q_auto,w_600/v1762432355/chad-madden-SUTfFCAHV_A-unsplash_xeyy12.jpg",
-  },
-  {
-    title: "Cruise",
-    img: "https://res.cloudinary.com/daolgjqnn/image/upload/f_auto,q_auto,w_600/v1762432452/alonso-reyes-haZNHEV2WXQ-unsplash_p5muib.jpg",
-  },
-];
 
 function Service() {
   const txt7 = useRef(null);
@@ -92,39 +60,25 @@ function Service() {
   }, []);
 
   return (
-    <section className="w-full h-full mt-14 bg-[#F2F2F6] flex flex-col justify-center">
-      <h1
-        ref={txt7}
-        className="text-4xl md:text-5xl font-bold text-black m-5 lg:m-10"
-      >
-        Our Services
-      </h1>
 
-      <h3 className="text-xl md:text-2xl font-medium text-gray-500 m-5 lg:ml-10">
-        Making every journey memorable with comfort, care, and customization.
-      </h3>
+    <section className="w-full h-full mt-14 bg-white flex flex-col items-center justify-center">
+      <div className=' w-[95%] px-2 md:px-10  flex items-center py-20 md:py-30  flex-col bg-[#FFF8F6] rounded-[3rem]'>
+        <h1 ref={txt7} className=" mt-5 text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i> Our Services</h1>
 
-      <div
-        ref={txt8}
-        className="mt-10 grid place-items-center lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 md:grid-cols-2 justify-center gap-5"
-      >
-        {services.map((service, idx) => (
-          <div
-            key={idx}
-            className="transition-all w-80 h-96 bg-gray-400 rounded-xl relative overflow-hidden"
-          >
-            <Image
-              src={service.img}
-              alt={service.title}
-              fill
-              className="rounded-xl object-cover"
-              loading="lazy"
-            />
-            <div className="absolute bottom-5 left-0 right-0 mx-auto h-12 w-[60%] bg-white/70 rounded-xl flex items-center justify-center">
-              <h1 className="text-black font-bold">{service.title}</h1>
-            </div>
-          </div>
-        ))}
+        <h3 className="text-xl text-center md:text-5xl font-bold text-black font-bogle m-5 lg:ml-10">
+          Flexible Car Rental Services For <br /> Every Journey.
+
+        </h3>
+
+        <div
+          ref={txt8}
+          className="mt-1 w-full grid place-items-center lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 md:grid-cols-2 justify-center gap-5"
+        >
+          <ServiceCard />
+
+        </div>
+        <h2 className=' mt-20  text-center text-[1rem] md:text-xl font-semibold text-gray-600'>Discover our range of car rental services designed to meet every travel need, offering reliable vehicles, flexible rental plans, and a seamless booking experience.
+        </h2>
       </div>
     </section>
   );
