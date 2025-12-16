@@ -56,7 +56,7 @@ function Nav({ open, setOpen }) {
               </Link>
             </li>
           </ul>
-          <Link href="/enquiry"><button onMouseEnter={() => window.cursor?.enter()}
+          <Link href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
             onMouseLeave={() => window.cursor?.leave()} className=" active:bg-black h-14 w-44 rounded-2xl bg-[#FF3600] cursor-pointer hover:bg-black transition-all ease-in-out flex items-center justify-center">
             <h1 className=" font-semibold text-white">Book Now</h1>
           </button>

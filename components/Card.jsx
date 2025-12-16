@@ -54,12 +54,12 @@ export default function Card({ img, name, location, tag, rates }) {
         </div>
 
         <div className="mt-6 flex gap-3">
-          <button className="cursor-pointer hover:bg-indigo-600 active:bg-indigo-600 flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition">
+          <Link className=" w-52 flex items-center justify-center" href={`/contact?car=${encodeURIComponent(name)}`}> <button className="cursor-pointer hover:bg-indigo-600 active:bg-indigo-600 flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition">
             <Calendar size={18} />
             Book Now
-          </button>
+          </button></Link>
 
-          <a href="tel:+918090579753">
+          <a href="tel:+918090579753"  onClick={(e) => e.stopPropagation()}>
             <button className="h-full cursor-pointer active:bg-gray-100 flex items-center justify-center px-4 rounded-xl border border-gray-200 hover:bg-gray-100 transition">
               <Phone className="text-gray-700" size={18} />
             </button>

@@ -1,21 +1,32 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import Head from "next/head";
 import Image from "next/image";
-import { X } from "lucide-react";
-import { CheckCircle } from "lucide-react";
+import { X, CheckCircle } from "lucide-react";
 import Footer from "../../../../components/Footer";
 import Nav from "../../../../components/Nav";
 import Side from "../../../../components/Side";
 import PolicyAccordion from "../../../../components/PolicyAccordion";
+import Link from "next/link";
 
 export default function CarDetails({ params }) {
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
-  const carName = decodeURIComponent(params.name);
+  const [carName, setCarName] = useState("");
+
+  // Unwrap params safely in useEffect
+  useEffect(() => {
+    (async () => {
+      const resolvedParams = await params; // unwrap promise if necessary
+      setCarName(decodeURIComponent(resolvedParams.name));
+    })();
+  }, [params]);
 
   useEffect(() => {
+    if (!carName) return;
+
     async function fetchCar() {
       try {
         const res = await fetch("/api/cars");
@@ -36,7 +47,7 @@ export default function CarDetails({ params }) {
     fetchCar();
   }, [carName]);
 
-  if (loading) {
+  if (loading || !carName) {
     return (
       <div className="h-screen flex items-center justify-center text-3xl font-bold">
         <span className="loading loading-dots text-[#FF3600] loading-xl"></span>
@@ -54,6 +65,20 @@ export default function CarDetails({ params }) {
 
   return (
     <>
+      <Head>
+        <title>{`${car.name} Car Rental in Varanasi | Aaradhya Tours & Travels`}</title>
+        <meta
+          name="description"
+          content={`Book ${car.name} car rental in Varanasi with Aaradhya Tours & Travels. Affordable rates, well-maintained cars, airport transfers, local & outstation trips.`}
+        />
+        <meta property="og:title" content={`${car.name} Car Rental in Varanasi`} />
+        <meta
+          property="og:description"
+          content={`Rent ${car.name} in Varanasi at best prices. Chauffeur-driven cars, airport pickup & outstation services.`}
+        />
+        <meta property="og:image" content="/logo.png" />
+      </Head>
+
       <Nav open={open} setOpen={setOpen} />
       <Side open={open} setOpen={setOpen} />
 
@@ -83,13 +108,14 @@ export default function CarDetails({ params }) {
             </div>
 
             <div className="mt-10 flex gap-4 items-center justify-center">
-              <button
+              <Link href={`/contact?car=${encodeURIComponent(car.name)}`}><button
                 onMouseEnter={() => window.cursor?.enter()}
                 onMouseLeave={() => window.cursor?.leave()}
                 className="bg-[#FF3600] cursor-pointer active:bg-[#FF3600]/60 hover:bg-[#FF3600]/60 transition-all text-white px-8 py-4 rounded-full font-semibold"
               >
                 Book Now
               </button>
+              </Link>
 
               <a
                 href="tel:+918090579753"
@@ -117,59 +143,51 @@ export default function CarDetails({ params }) {
         </div>
       </section>
 
-       <section className="w-full py-20 bg-white flex items-center justify-center">
-      <div className="max-w-5xl px-6">
-        
-        {/* Heading */}
-        <p className="text-[#FF3600] font-semibold mb-4 flex items-center gap-2">
-          <span className="text-xl">*</span>
-          General Information
-        </p>
+      <section className="w-full py-20 bg-white flex items-center justify-center">
+        <div className="max-w-5xl px-6">
+          <p className="text-[#FF3600] font-semibold mb-4 flex items-center gap-2">
+            <span className="text-xl">*</span>
+            General Information
+          </p>
 
-        <h2 className="text-4xl font-bold text-black mb-6">
-          Know about our car service
-        </h2>
+          <h2 className="text-4xl font-bold text-black mb-6">
+            Know about our car service
+          </h2>
 
-        {/* Description */}
-        <p className="text-gray-600 max-w-4xl mb-10 leading-relaxed">
-          We provide reliable and affordable car rental services designed
-          to make your travel comfortable and stress-free. From easy bookings
-          to well-maintained vehicles, we focus on delivering quality at every step.
-        </p>
+          <p className="text-gray-600 max-w-4xl mb-10 leading-relaxed">
+            We provide reliable and affordable car rental services designed
+            to make your travel comfortable and stress-free. From easy bookings
+            to well-maintained vehicles, we focus on delivering quality at every step.
+          </p>
 
-        {/* Points */}
-        <ul className="space-y-4">
-          <li className="flex items-center gap-3">
-            <CheckCircle className="text-[#FF3600]" />
-            <span className="font-semibold text-black">
-              24/7 Roadside Assistance
-            </span>
-          </li>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <CheckCircle className="text-[#FF3600]" />
+              <span className="font-semibold text-black">
+                24/7 Roadside Assistance
+              </span>
+            </li>
 
-          <li className="flex items-center gap-3">
-            <CheckCircle className="text-[#FF3600]" />
-            <span className="font-semibold text-black">
-              Free Cancellation & Return
-            </span>
-          </li>
+            <li className="flex items-center gap-3">
+              <CheckCircle className="text-[#FF3600]" />
+              <span className="font-semibold text-black">
+                Free Cancellation & Return
+              </span>
+            </li>
 
-          <li className="flex items-center gap-3">
-            <CheckCircle className="text-[#FF3600]" />
-            <span className="font-semibold text-black">
-              Rent Now, Pay When You Arrive
-            </span>
-          </li>
-        </ul>
+            <li className="flex items-center gap-3">
+              <CheckCircle className="text-[#FF3600]" />
+              <span className="font-semibold text-black">
+                Rent Now, Pay When You Arrive
+              </span>
+            </li>
+          </ul>
 
-      </div>
-    </section>
-       
-       <PolicyAccordion/>
-     
+        </div>
+      </section>
 
-      <footer>
-        <Footer />
-      </footer>
+      <PolicyAccordion/>
+      <Footer/>
     </>
   );
 }

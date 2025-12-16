@@ -3,6 +3,9 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import Cursor from "../../components/Cursor";
 import SmoothScroll from "../../components/SmoothScroll";
+import Whatsapp from "../../components/Whatsapp";
+import Call from "../../components/Call";
+
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -11,59 +14,63 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "Travel Explores | Discover Beautiful Places",
+  title: "Car Rental in Varanasi | Aaradhya Tours & Travels - Taxi & Cab Services",
   description:
-    "Explore breathtaking travel destinations, guides, and experiences with Travel Explores. Start your next adventure today!",
+    "Book reliable car rental services in Varanasi with Aaradhya Tours & Travels.Airport transfers, chauffeur-driven cars, business travel & outstation taxis at best prices.",
   keywords: [
-    "travel explores",
-    "travel explore",
-    "travel",
-    "exploration",
-    "adventure",
-    "tourism",
-    "travel blog",
-    "Travel Explores",
+    "car rental in varanasi",
+    "taxi service in varanasi",
+    "cab booking varanasi",
+    "airport taxi varanasi",
+    "chauffeur driven car rental",
+    "outstation cab varanasi",
+    "Aaradhya Tours and Travels",
+    "varanasi cab service",
   ],
-  metadataBase: new URL("https://travelexplores.com"),
+
+  metadataBase: new URL("https://aaradhyatourandtravels.com"),
+
   openGraph: {
-    title: "Travel Explores",
+    title: "Car Rental in Varanasi | Aaradhya Tours & Travels",
     description:
-      "Discover beautiful destinations and travel experiences around the world.",
-    url: "https://travelexplores.com",
-    siteName: "Travel Explores",
+      "Reliable car rental and taxi services in Varanasi.Airport transfers, chauffeur-driven cars, outstation and local cab booking at best prices.",
+    url: "https://aaradhyatourandtravels.com",
+    siteName: "Aaradhya Tours & Travels",
     images: [
       {
         url: "/logo.png",
         width: 800,
         height: 600,
-        alt: "Travel Explores logo",
+        alt: "Aaradhya Tours & Travels car rental service in Varanasi",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
     apple: "/logo.png",
   },
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
 
-
-      <body className={`bg-white ${openSans.variable}  scroll-smooth font-opensans`}>
+      <body
+        className={`bg-white ${openSans.variable} scroll-smooth font-opensans`}
+      >
         {children}
-        <Cursor/>
-        <SmoothScroll/>
+        <Cursor />
+        <SmoothScroll />
+        <Whatsapp/>
+        <Call/>
 
         {/* ✅ JS version of Font Awesome (always works) */}
         <Script

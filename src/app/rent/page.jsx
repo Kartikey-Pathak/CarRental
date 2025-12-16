@@ -6,6 +6,7 @@ import Any from "../../../components/Any";
 import Footer from "../../../components/Footer";
 import Nav from "../../../components/Nav";
 import Side from "../../../components/Side";
+import Last from "../../../components/Last";
 
 function Rent() {
       const [open, setOpen] = useState(false);
@@ -16,6 +17,8 @@ function Rent() {
             <Side open={open} setOpen={setOpen} />
 
             <Any />
+            
+            <Last/>
 
             <footer>
                 <Footer />

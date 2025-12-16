@@ -21,6 +21,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "../../../components/Footer";
 import AboutTab from "../../../components/AboutTab";
 import PolicyAccordion from "../../../components/PolicyAccordion";
+import Last from "../../../components/Last";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -162,6 +163,8 @@ export default function page() {
     <AboutTab/>
 
     <PolicyAccordion/>
+
+    <Last/>
 
     <footer>
         <Footer/>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -22,10 +23,10 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <h2 className="text-2xl font-bold">
-                <span className="text-[#FF3600]">ARADHYA</span> TOURS
-              </h2>
+            <span className="text-[#FF3600]">ARADHYA TOURS</span> AND TRAVELS
+          </h2>
               <p className="text-gray-400 mt-4">
-                Experience the comfort and reliability of traveling with Aradhya Tours.
+                Experience the comfort and reliability of traveling with Aaradhya Tour & Travels.
               </p>
             </div>
 
@@ -41,11 +42,11 @@ const Footer = () => {
             {/* Quick Links */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Rent a Car</li>
+              <ul className=" cursor-pointer space-y-2 text-gray-400">
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/contact">Contact Us</Link></li>
+                <li><Link href="/rent">Rent a Car</Link></li>
               </ul>
             </div>
 
@@ -57,25 +58,11 @@ const Footer = () => {
 
               <div className="flex items-center">
                 {/* Email Input */}
-                <input
-                  type="email"
-                  placeholder="Email..."
-                  className="bg-[#333333] rounded-full text-white placeholder-gray-400 px-6 py-3 text-sm outline-none w-full max-w-md"
-                />
-
-                {/* Arrow Button */}
-                <button className="ml-3 w-12 h-12 flex items-center justify-center bg-orange-500 rounded-full hover:bg-orange-600 transition">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                  <p className="text-gray-400 mt-4">Email : <a href="mailto:rajat6427@gmail.com" className="text-orange-500 hover:underline">
+                  
+                rajat6427@gmail.com</a>
+              </p>
+              
               </div>
             </div>
           </div>
@@ -86,7 +73,7 @@ const Footer = () => {
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-gray-400 text-sm">
-              © 2025 Aradhya Tours. All rights reserved.
+              © 2025 Aaradhya Tour & Travels. All rights reserved.
             </p>
 
             <div className="flex gap-4">

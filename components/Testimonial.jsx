@@ -68,14 +68,14 @@ function Testimonial() {
     }, [])
 
     return (
-        <section className=" mt-14 w-full max-w-screen flex items-center text-center justify-center  bg-[#F2F2F6] flex-col">
-            <h1 ref={txt5} className=" text-4xl md:text-5xl font-semibold text-black m-10">Customer Reviews</h1>
+        <section className=" mt-14 w-full max-w-screen flex items-center text-center justify-center  bg-[#FFF8F6] flex-col">
+            <h1 ref={txt5} className=" text-3xl md:text-5xl font-bogle font-semibold text-black m-10">Customer Reviews</h1>
 
             <div ref={txt6} className=" w-[90%] h-full flex overflow-x-auto hide-scrollbar justify-start rounded-xl   m-5 mt-3 gap-5 ">
-                <Review group="1" url="user.jpg" name="Shubham" des="Excellent service! The package was amazing." />
-                <Review group="2" url="user.jpg" name="Adarsh" des="Very satisfied with the packages!" />
-                <Review group="4" url="user.jpg" name="Rudresh" des="Pleasant experience." />
-                <Review group="3" url="user.jpg" name="Prashant" des="Good service, clean tours, friendly staff." />
+                <Review group="1" url="img1.png" name="Shubham" des="Excellent service! driver was polite." />
+                <Review group="2" url="img3.jpg" name="Adarsh" des="Very satisfied with the cars!" />
+                <Review group="4" url="img5.jpg" name="Rudresh" des="Pleasant experience." />
+                <Review group="3" url="img4.jpg" name="Prashant" des="Good service, clean tours, friendly staff." />
 
             </div>
 
