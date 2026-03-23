@@ -79,7 +79,7 @@ export default function Hero() {
             <h1 className="font-ubuntu font-medium text-center  text-xl  text-white drop-shadow-lg mt-10">Reliable and affordable car rentals for weekends, business trips, or daily rides. Book your car today!</h1>
 
             <div className=" lg:mt-32 relative z-[9999] w-32 h-8 flex items-center justify-center">
-              <Link  className=" mt-32 md:mt-96 lg:mt-72  absolute z-[9999]" href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
+              <Link className=" mt-32 md:mt-96 lg:mt-72  absolute z-[9999]" href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
                 onMouseLeave={() => window.cursor?.leave()} className=" active:bg-black h-14 w-44 rounded-2xl bg-[#FF3600] cursor-pointer hover:bg-black transition-all ease-in-out flex items-center justify-center">
                 <h1 className=" font-semibold text-white">Book Now</h1>
               </button>
@@ -91,7 +91,7 @@ export default function Hero() {
           </div>
 
 
-         
+
           <String />
 
 
@@ -101,14 +101,18 @@ export default function Hero() {
           <div className=" flex items-center justify-center flex-col  w-full h-full">
             <div ref={imgRef} className=" relative flex items-center flex-col justify-center inset-0 h-full w-full lg:w-[95%]">
               <video
-               src="/vid.mp4"
-               autoPlay
-               muted
-               loop
+                src="/vid.mp4"
+                autoPlay
+                playsInline
+                preload="auto"
+                disablePictureInPicture
+                controls={false}
+                muted
+                loop
                 alt={`Banner `}
-                
+
                 className="object-cover brightness-80 h-full w-full pointer-events-none lg:rounded-[3rem] "
-              
+
               />
               {/* <Image
                 src={bn1}
