@@ -11,8 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Any({ packages }) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
- 
-  
+
+
   //Setted this on home only***
 
   // ✅ Fetch cars from /api/cars
@@ -91,7 +91,16 @@ export default function Any({ packages }) {
               ))
             ) : (
               <div className="flex items-center justify-center min-h-[50vh] col-span-full">
-                <p className="text-gray-500 text-5xl font-semibold">Loading...</p>
+                <div className="flex w-52 flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="skeleton bg-gray-200 h-16 w-16 shrink-0 rounded-full"></div>
+                    <div className="flex flex-col gap-4">
+                      <div className="skeleton bg-gray-200 h-4 w-20"></div>
+                      <div className="skeleton bg-gray-200 h-4 w-28"></div>
+                    </div>
+                  </div>
+                  <div className="skeleton bg-gray-200 h-32 w-full"></div>
+                </div>
               </div>
             )}
           </div>
