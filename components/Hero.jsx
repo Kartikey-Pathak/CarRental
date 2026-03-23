@@ -101,12 +101,13 @@ export default function Hero() {
           <div className=" flex items-center justify-center flex-col  w-full h-full">
             <div ref={imgRef} className=" relative flex items-center flex-col justify-center inset-0 h-full w-full lg:w-[95%]">
               <video
-                src="/vid.mp4"
+                src="https://res.cloudinary.com/dkxoayrd0/video/upload/v1774248249/vid_n58ab6.mp4"
                 autoPlay
                 playsInline
                 preload="auto"
                 disablePictureInPicture
                 controls={false}
+                 poster="/vid.jpeg"
                 muted
                 loop
                 alt={`Banner `}
