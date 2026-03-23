@@ -17,6 +17,7 @@ import Testimonial from "../../components/Testimonial";
 import Section from "../../components/Section";
 import PolicyAccordion from "../../components/PolicyAccordion";
 import PolicyMain from "../../components/PolicyMain";
+import HomeSeoContent from "../../components/HomeSeoContent";
 
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
         <Side open={open} setOpen={setOpen} />
       </header>
 
-      <main>
+      <main className=" bg-black">
         <Hero />
 
         <Service />
@@ -76,7 +77,7 @@ export default function Home() {
         <Section />
 
 
-
+       <HomeSeoContent/>
 
 
         <Testimonial />

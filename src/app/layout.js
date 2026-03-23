@@ -14,34 +14,38 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "Car Rental in Varanasi | Aaradhya Tours & Travels - Taxi & Cab Services",
+  title: "Car Rental in Varanasi | Aaradhya Tour & Travels - Taxi & Cab Services",
   description:
-    "Book reliable car rental services in Varanasi with Aaradhya Tours & Travels.Airport transfers, chauffeur-driven cars, business travel & outstation taxis at best prices.",
+    "Book reliable car rental services in Varanasi with Aaradhya Tour & Travels.Airport transfers, chauffeur-driven cars, business travel & outstation taxis at best prices.",
   keywords: [
     "car rental in varanasi",
+    "aaradhya tour and travels",
+    "aaradhyatourandtravels",
+    "aaradhya tours and travels",
     "taxi service in varanasi",
     "cab booking varanasi",
     "airport taxi varanasi",
     "chauffeur driven car rental",
     "outstation cab varanasi",
     "Aaradhya Tours and Travels",
+     "Aaradhya Tour and Travels",
     "varanasi cab service",
   ],
 
   metadataBase: new URL("https://aaradhyatourandtravels.com"),
 
   openGraph: {
-    title: "Car Rental in Varanasi | Aaradhya Tours & Travels",
+    title: "Car Rental in Varanasi | Aaradhya Tour & Travels",
     description:
       "Reliable car rental and taxi services in Varanasi.Airport transfers, chauffeur-driven cars, outstation and local cab booking at best prices.",
     url: "https://aaradhyatourandtravels.com",
-    siteName: "Aaradhya Tours & Travels",
+    siteName: "Aaradhya Tour & Travels",
     images: [
       {
         url: "/logo.png",
         width: 800,
         height: 600,
-        alt: "Aaradhya Tours & Travels car rental service in Varanasi",
+        alt: "Aaradhya Tour & Travels car rental service in Varanasi",
       },
     ],
     locale: "en_US",
@@ -49,18 +53,33 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: "/logo.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html className=" bg-black" lang="en">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SBQTX18BJ9"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SBQTX18BJ9');
+  `}
+        </Script>
+
       </head>
 
       <body
@@ -69,8 +88,8 @@ export default function RootLayout({ children }) {
         {children}
         <Cursor />
         <SmoothScroll />
-        <Whatsapp/>
-        <Call/>
+        <Whatsapp />
+        <Call />
 
         {/* ✅ JS version of Font Awesome (always works) */}
         <Script

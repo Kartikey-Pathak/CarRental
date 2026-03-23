@@ -22,6 +22,7 @@ import Footer from "../../../components/Footer";
 import AboutTab from "../../../components/AboutTab";
 import PolicyAccordion from "../../../components/PolicyAccordion";
 import Last from "../../../components/Last";
+import AboutSeoContent from "../../../components/AboutSeoContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,7 @@ export default function page() {
         <Nav open={open} setOpen={setOpen}/>
          <Side open={open} setOpen={setOpen} />
 
-        <section className="w-full bg-white py-52">
+        <section className="w-full bg-black py-52">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Icons / Visual */}
@@ -109,13 +110,13 @@ export default function page() {
             About Us
           </p>
 
-          <h2 className="text-4xl font-bold text-gray-900 leading-snug mb-6">
+          <h2 className="text-4xl font-bold text-gray-300 leading-snug mb-6">
             Your trusted partner for
             <br />
             reliable car rentals
           </h2>
 
-          <p className="text-gray-600 mb-10 max-w-xl">
+          <p className="text-gray-400 mb-10 max-w-xl">
             We provide safe, affordable, and flexible car rental solutions
             designed to make your journey smooth and stress-free. Whether
             you're traveling for business or leisure, we've got the right
@@ -129,10 +130,10 @@ export default function page() {
                 <CalendarCheck className="text-orange-500 w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">
+                <h4 className="font-semibold text-gray-400">
                   Easy & Fast Booking
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Book your car in minutes with our simple and transparent
                   online reservation process.
                 </p>
@@ -145,10 +146,10 @@ export default function page() {
                 <ShieldCheck className="text-orange-500 w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">
+                <h4 className="font-semibold text-gray-400">
                   Safe & Reliable Vehicles
                 </h4>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   Our cars are regularly inspected and maintained to ensure
                   maximum safety and comfort.
                 </p>
@@ -161,6 +162,8 @@ export default function page() {
     </section>
 
     <AboutTab/>
+
+    <AboutSeoContent/>
 
     <PolicyAccordion/>
 

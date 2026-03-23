@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -7,73 +7,147 @@ import Dcard from "./Dcard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 function Section() {
   const txt = useRef(null);
   const sec = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(txt.current, { opacity: 0, x: -50 }, {
-      opacity: 1, x: 0, duration: 1.2, delay: 0.3, scrollTrigger: {
-        trigger: txt.current, // element to watch
-        start: "top 80%", // when top of element hits 80% of viewport
-        end: "bottom 60%",
-      },
-    });
+    // Heading animation
+    gsap.fromTo(
+      txt.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: txt.current,
+          start: "top 80%",
+        },
+      }
+    );
 
-    //for the section tag
-    gsap.fromTo(sec.current, { opacity: 0 }, {
-      opacity: 1, duration: 1.4, delay: 0.5, scrollTrigger: {
-        trigger: txt.current, // element to watch
-        start: "top 80%", // when top of element hits 80% of viewport
-        end: "bottom 60%",
-      },
-    });
+    // Section fade
+    gsap.fromTo(
+      sec.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: sec.current,
+          start: "top 85%",
+        },
+      }
+    );
 
-    // Animate each card individually
+    // Cards animation
     gsap.utils.toArray(".place").forEach((card, i) => {
       gsap.fromTo(
         card,
-        { opacity: 0, x: -60 },
+        { opacity: 0, y: 60, scale: 0.95 },
         {
           opacity: 1,
-          duration: 0.4,
-          x: 0,
-          delay: i * 0.1, // stagger effect
-          ease: "sine.inOut",
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          delay: i * 0.08,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 70%",
-            end: "bottom 60%",
-
+            start: "top 85%",
           },
         }
       );
     });
+  }, []);
 
-
-  }, [])
   return (
-    <div className="   w-full max-w-screen flex items-center justify-center  bg-white mt-10  ">
-      <div className=" w-full h-full py-10 text-center flex items-center justify-center lg:w-[95%] bg-[#FFF8F6] rounded-[3rem] flex-col ">
-        <h1  className=" text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i> Our Services</h1>
-        <h1 ref={txt} className=" font-bogle  font-bold p-5 md:p-10 text-xl text-center md:text-5xl text-black">Book for Destinations in Varanasi</h1>
+    <section
+      ref={sec}
+      className="w-full items-center flex justify-center mt-20 px-4"
+    >
+      <div className=" w-full lg:w-[95%] flex items-center justify-center flex-col">
+      <div className="w-full  py-16 bg-[#191919] rounded-[2rem] text-center">
 
-        <div className=" flex items-center h-full w-full justify-center mt-10 ">
-          <div className=" h-full w-[90%] grid grid-cols-1 place-items-center md:grid-cols-3 justify-center gap-3">
+        {/* Small Heading */}
+        <p className="text-sm md:text-base font-semibold text-[#FF3600] tracking-widest">
+          ✦ OUR SERVICES
+        </p>
 
-            <Dcard url={"Kashi"} name={"Kashi Vishwanath Temple"} des={"Visit the sacred temple dedicated to Lord Shiva in the heart of Varanasi."} />
-            <Dcard url={"Sarnath"} des={"Perfect for a half-day or full-day trip from Varanasi, Sarnath offers a serene escape and a glimpse into India's rich cultural heritage."} name={"Sarnath"} />
-            <Dcard url={"Airport"} des={"Comfortable and timely taxi transfers to and from Lal Bahadur Shastri Airport. Hassle-free rides for a smooth journey."} name={"Varanasi Airport"} />
-            <Dcard url={"Ghat"} des={"Enjoy the vibrant riverside, sunrise rituals, and serene boat rides at the southern end of Varanasi."} name={"Assi Ghat"} />
-            <Dcard url={"Fort"} des={"Discover historic architecture and museums along the Ganges at this 17th-century fort."} name={"Ramnagar Fort"} />
-            <Dcard url={"BHU"} des={"Explore the historic campus, temples, and peaceful surroundings."} name={"Banaras Hindu University"} />
+        {/* Main Heading */}
+        <h1
+          ref={txt}
+          className="mt-4 text-2xl md:text-5xl font-bold text-white px-4 md:px-10 leading-tight"
+        >
+          Book Popular Destinations in Varanasi
+        </h1>
+
+        {/* Cards Grid */}
+        <div className="mt-14 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 place-items-center">
+
+            <Dcard
+              url="Kashi"
+              name="Kashi Vishwanath Temple"
+              des="Visit the sacred temple dedicated to Lord Shiva in the heart of Varanasi."
+            />
+
+            <Dcard
+              url="Sarnath"
+              name="Sarnath"
+              des="A peaceful Buddhist site where Lord Buddha gave his first sermon."
+            />
+
+            <Dcard
+              url="Airport"
+              name="Varanasi Airport"
+              des="Reliable taxi transfers to and from Lal Bahadur Shastri Airport."
+            />
+
+            <Dcard
+              url="Ghat"
+              name="Assi Ghat"
+              des="Famous for sunrise rituals, Ganga aarti, and boat rides."
+            />
+
+            <Dcard
+              url="Fort"
+              name="Ramnagar Fort"
+              des="A historic 17th-century fort and museum along the Ganges."
+            />
+
+            <Dcard
+              url="BHU"
+              name="Banaras Hindu University"
+              des="A vast historic campus with temples and peaceful surroundings."
+            />
+
+            <Dcard
+              url="Ayodhya"
+              name="Ayodhya Ram Mandir"
+              des="The sacred birthplace of Lord Rama and a major pilgrimage site."
+            />
+
+            <Dcard
+              url="Prayag"
+              name="Triveni Sangam, Prayagraj"
+              des="The holy confluence of the Ganga, Yamuna, and Saraswati rivers."
+            />
+
+            <Dcard
+              url="Bodh"
+              name="Bodh Gaya"
+              des="Home to the Mahabodhi Temple where Buddha attained enlightenment."
+            />
 
           </div>
         </div>
       </div>
-    
-    </div>
-  )
+      </div>
+    </section>
+  );
 }
+
 export default Section;

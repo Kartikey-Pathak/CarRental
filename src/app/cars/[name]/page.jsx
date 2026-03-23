@@ -82,15 +82,15 @@ export default function CarDetails({ params }) {
       <Nav open={open} setOpen={setOpen} />
       <Side open={open} setOpen={setOpen} />
 
-      <section className="max-w-7xl mx-auto px-6 py-20 mt-10">
+      <section className=" w-full bg-black mx-auto px-6 py-20 mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT INFO */}
-          <div className="bg-[#FFF8F6] rounded-3xl p-8 order-2 lg:order-1">
-            <h1 className="text-3xl text-black font-bold mb-2">{car.name}</h1>
-            <p className="text-black mb-6">{car.location}</p>
+          <div className="bg-[#191919] rounded-3xl p-8 order-2 lg:order-1">
+            <h1 className="text-3xl text-white font-bold mb-2">{car.name}</h1>
+            <p className="text-white mb-6">{car.location}</p>
 
-            <h2 className="text-xl font-semibold text-black mb-4">Rates</h2>
+            <h2 className="text-xl font-semibold text-white mb-4">Rates</h2>
 
             <div className="space-y-4">
               {car.rates.map((rate, index) => (
@@ -98,10 +98,10 @@ export default function CarDetails({ params }) {
                   key={index}
                   className="flex items-center justify-between border-b pb-2"
                 >
-                  <span className="text-black">{rate.label}</span>
+                  <span className="text-white">{rate.label}</span>
                   <div className="flex items-center gap-6">
-                    <span className="font-semibold text-black">{rate.price}</span>
-                    <X className="text-black" size={18} />
+                    <span className="font-semibold text-gray-300">{rate.price}</span>
+                    <X className="text-white" size={18} />
                   </div>
                 </div>
               ))}
@@ -143,18 +143,18 @@ export default function CarDetails({ params }) {
         </div>
       </section>
 
-      <section className="w-full py-20 bg-white flex items-center justify-center">
+      <section className="w-full py-20 bg-black flex items-center justify-center">
         <div className="max-w-5xl px-6">
           <p className="text-[#FF3600] font-semibold mb-4 flex items-center gap-2">
             <span className="text-xl">*</span>
             General Information
           </p>
 
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Know about our car service
           </h2>
 
-          <p className="text-gray-600 max-w-4xl mb-10 leading-relaxed">
+          <p className="text-gray-300 max-w-4xl mb-10 leading-relaxed">
             We provide reliable and affordable car rental services designed
             to make your travel comfortable and stress-free. From easy bookings
             to well-maintained vehicles, we focus on delivering quality at every step.
@@ -163,21 +163,21 @@ export default function CarDetails({ params }) {
           <ul className="space-y-4">
             <li className="flex items-center gap-3">
               <CheckCircle className="text-[#FF3600]" />
-              <span className="font-semibold text-black">
+              <span className="font-semibold text-white">
                 24/7 Roadside Assistance
               </span>
             </li>
 
             <li className="flex items-center gap-3">
               <CheckCircle className="text-[#FF3600]" />
-              <span className="font-semibold text-black">
+              <span className="font-semibold text-white">
                 Free Cancellation & Return
               </span>
             </li>
 
             <li className="flex items-center gap-3">
               <CheckCircle className="text-[#FF3600]" />
-              <span className="font-semibold text-black">
+              <span className="font-semibold text-white">
                 Rent Now, Pay When You Arrive
               </span>
             </li>

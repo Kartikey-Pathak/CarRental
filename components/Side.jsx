@@ -13,7 +13,7 @@ export default function Side({ open, setOpen }) {
 
             {/* Sidebar */}
             <div
-                className={`fixed left-0 top-0 h-screen w-64 bg-white z-[999] overflow-hidden
+                className={`fixed left-0 top-0 h-screen w-64 rounded-r-4xl  backdrop-blur-md z-[999] overflow-hidden
                 transform transition-transform duration-500 ease-out
                 ${open ? "translate-x-0" : "-translate-x-full"}
                 `}
@@ -21,13 +21,13 @@ export default function Side({ open, setOpen }) {
                 {/* Close Button */}
                 <button
                     onClick={() => setOpen(false)}
-                    className="absolute text-black font-bold top-4 right-4 text-2xl"
+                    className="absolute text-white hover:scale-95 active:scale-95 transition-all font-bold top-4 right-4 text-2xl"
                 >
                     ✕
                 </button>
 
                 {/* Sidebar content */}
-                <div className="m-10 mt-16 text-black font-semibold flex flex-col gap-5">
+                <div className="m-10 mt-16 text-white font-semibold flex flex-col gap-5">
                     <Link onClick={() => setOpen(false)} href="/" className="text-2xl hover:text-gray-500 transition-all">
                         Home
                     </Link>

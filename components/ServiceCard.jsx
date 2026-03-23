@@ -53,15 +53,15 @@ export default function ServiceCards() {
        <Link href="/rent" ><div
         onMouseOver={() => over(bg1.current, content1.current)}
         onMouseOut={() => out(bg1.current, content1.current)}
-        className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
+        className="group bg-black relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
       >
         <div ref={bg1} className="absolute left-0 bottom-0 w-full h-0 bg-[#FF3600] rounded-3xl z-0" />
-        <div ref={content1} className="relative z-10 text-black">
+        <div ref={content1} className="relative z-10 text-white">
           <div className="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mb-6">
             <UserCheck className="text-orange-500 w-6 h-6" strokeWidth={1.8} />
           </div>
-          <h3 className="text-xl font-semibold mb-3">Car Rental with Driver</h3>
-          <p className="text-sm leading-relaxed">
+          <h3 className="text-xl text-white font-semibold mb-3">Car Rental with Driver</h3>
+          <p className="text-sm text-white leading-relaxed">
             Comfortable car rental service with professional drivers for local, outstation, and long-distance travel.
           </p>
           <div className="mt-8">
@@ -77,15 +77,15 @@ export default function ServiceCards() {
       <Link href="/rent" ><div
         onMouseOver={() => over(bg2.current, content2.current)}
         onMouseOut={() => out(bg2.current, content2.current)}
-        className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
+        className="group bg-black relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
       >
         <div ref={bg2} className="absolute left-0 bottom-0 w-full h-0 bg-[#FF3600] rounded-3xl z-0" />
-        <div ref={content2} className="relative z-10 text-black">
+        <div ref={content2} className="relative z-10 text-white">
           <div className="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mb-6">
             <Briefcase className="text-orange-500 w-6 h-6" strokeWidth={1.8} />
           </div>
-          <h3 className="text-xl font-semibold mb-3">Business Car Rental</h3>
-          <p className="text-sm leading-relaxed">
+          <h3 className="text-xl font-semibold text-white mb-3">Business Car Rental</h3>
+          <p className="text-sm leading-relaxed text-white">
             Reliable and punctual car rentals for corporate travel, meetings, and professional transportation.
           </p>
           <div className="mt-8">
@@ -101,15 +101,15 @@ export default function ServiceCards() {
      <Link href="/rent" ><div
         onMouseOver={() => over(bg3.current, content3.current)}
         onMouseOut={() => out(bg3.current, content3.current)}
-        className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
+        className="group bg-black relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
       >
         <div ref={bg3} className="absolute left-0 bottom-0 w-full h-0 bg-[#FF3600] rounded-3xl z-0" />
-        <div ref={content3} className="relative z-10 text-black">
+        <div ref={content3} className="relative z-10 text-white">
           <div className="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mb-6">
             <Car className="text-orange-500 w-6 h-6" strokeWidth={1.8} />
           </div>
-          <h3 className="text-xl font-semibold mb-3">Chauffeur Services</h3>
-          <p className="text-sm leading-relaxed">
+          <h3 className="text-xl font-semibold text-white mb-3">Chauffeur Services</h3>
+          <p className="text-sm text-white leading-relaxed">
             Premium chauffeur-driven car rental services for weddings, events, and luxury travel experiences.
           </p>
           <div className="mt-8">
@@ -125,15 +125,15 @@ export default function ServiceCards() {
       <Link href="/rent" ><div
         onMouseOver={() => over(bg4.current, content4.current)}
         onMouseOut={() => out(bg4.current, content4.current)}
-        className="group bg-white relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
+        className="group bg-black relative cursor-pointer rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition overflow-hidden"
       >
         <div ref={bg4} className="absolute left-0 bottom-0 w-full h-0 bg-[#FF3600] rounded-3xl z-0" />
-        <div ref={content4} className="relative z-10 text-black">
+        <div ref={content4} className="relative z-10 text-white">
           <div className="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mb-6">
             <Plane className="text-orange-500 w-6 h-6" strokeWidth={1.8} />
           </div>
-          <h3 className="text-xl font-semibold mb-3">Airport Transfer</h3>
-          <p className="text-sm leading-relaxed">
+          <h3 className="text-xl font-semibold text-white mb-3">Airport Transfer</h3>
+          <p className="text-sm text-white leading-relaxed">
             On-time airport pickup and drop car rental service for smooth, safe, and stress-free travel.
           </p>
           <div className="mt-8">

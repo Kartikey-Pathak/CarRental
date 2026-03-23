@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FlipWord } from "./FlipWord";
 const Last = () => {
     return (
-        <div className="w-full flex justify-center px-4 py-10">
+        <div className="w-full flex justify-center bg-black px-4 py-10">
 
             {/* Main Black Box */}
             <div
                 className="
           relative bg-black overflow-hidden
           w-full lg:w-[95%]
-          rounded-none lg:rounded-[40px]
+          rounded-[40px]
         "
             >
                 {/* GRID BACKGROUND */}
@@ -17,8 +18,8 @@ const Last = () => {
                     className="absolute inset-0"
                     style={{
                         backgroundImage: `
-              linear-gradient(rgba(48, 41, 41, 0.02) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(113, 108, 108, 0.12) 1px, transparent 1px)
+             linear-gradient(rgba(160, 160, 160, 0.15) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(160, 160, 160, 0.15) 1px, transparent 1px)
             `,
                         backgroundSize: "60px 60px",
                     }}
@@ -29,15 +30,7 @@ const Last = () => {
 
                     {/* LEFT TEXT */}
                     <div className="max-w-xl text-white">
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                            Ready to hit the road? <br />
-                            Book your car today !
-                        </h1>
-
-                        <p className="mt-5 text-gray-300 text-sm sm:text-base">
-                            Our friendly customer service team is here to help. Contact us
-                            anytime for support and inquiries.
-                        </p>
+                        <FlipWord/>
 
                         {/* BUTTONS */}
                         <div className="mt-8 flex items-center gap-4">

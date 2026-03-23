@@ -36,48 +36,48 @@ function Form() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-6xl mx-auto bg-white lg:rounded-4xl shadow-md px-6 py-4 flex flex-wrap items-center gap-4"
+      className="w-full max-w-6xl mx-auto  backdrop-blur-sm  md:backdrop-blur-xl lg:rounded-4xl shadow-md px-6 py-4 flex flex-wrap items-center gap-4"
     >
       {/* Left Text */}
-      <div className="text-lg font-semibold text-gray-900 min-w-[200px]">
+      <div className="text-lg font-semibold text-white min-w-[200px]">
         Need to Rent a Car?
       </div>
 
       {/* Full Name */}
       <div className="flex flex-col flex-1 min-w-[160px]">
-        <label className="text-sm font-medium text-gray-700">
+        <label className="text-sm font-medium text-white">
           Full Name
         </label>
         <input
           type="text"
           placeholder="Enter Full Name"
-          className="outline-none font-opensans font-semibold border-2 rounded-xl p-1 text-black placeholder-gray-400"
+          className="outline-none font-opensans font-semibold border-2 rounded-xl p-1 text-white placeholder-gray-200"
           onChange={(e) => setName(e.target.value)}
         />
       </div>
 
       {/* Mobile Number */}
       <div className="flex flex-col flex-1 min-w-[160px]">
-        <label className="text-sm font-medium text-gray-700">
+        <label className="text-sm font-medium text-white">
           Mobile No
         </label>
         <input
           type="tel"
           placeholder="Enter Phone no."
-          className="outline-none border-2 font-opensans font-semibold rounded-xl p-1 text-black placeholder-gray-400"
+          className="outline-none border-2 font-opensans font-semibold rounded-xl p-1 text-white placeholder-gray-200"
           onChange={(e) => setPhone(e.target.value)}
         />
       </div>
 
       {/* Pickup Date */}
       <div className="flex flex-col min-w-[150px]">
-        <label className="text-sm font-medium text-gray-700">
+        <label className="text-sm font-medium text-white">
           Pickup Date
         </label>
         <input
           type="date"
           onClick={(e) => e.currentTarget.showPicker()}
-          className="outline-none border-2 font-opensans font-semibold rounded-xl p-1 text-black"
+          className="outline-none border-2 font-opensans font-semibold rounded-xl p-1 text-white"
           onChange={(e) => setDate(e.target.value)}
         />
       </div>

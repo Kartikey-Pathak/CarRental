@@ -61,11 +61,11 @@ function Service() {
 
   return (
 
-    <section className="w-full h-full mt-14 bg-white flex flex-col items-center justify-center">
-      <div className=' w-[95%] px-2 md:px-10  flex items-center py-20 md:py-30  flex-col bg-[#FFF8F6] rounded-[3rem]'>
-        <h2 ref={txt7} className=" mt-5 text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i> Our Services</h2>
+    <section className="w-full h-full mt-14 bg-black flex flex-col items-center justify-center">
+      <div className=' lg:w-[95%] px-2 md:px-10  flex items-center py-20 md:py-30  flex-col bg-[#191919] rounded-[3rem]'>
+        <h2 ref={txt7} className=" mt-5 text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i> Car Rental & Taxi Services in Varanasi</h2>
 
-        <h3 className="text-xl text-center md:text-5xl font-bold text-black font-bogle m-5 lg:ml-10">
+        <h3 className="text-xl text-center md:text-5xl font-bold text-white font-bogle m-5 lg:ml-10">
           Flexible Car Rental Services For <br /> Every Journey.
 
         </h3>
@@ -77,7 +77,7 @@ function Service() {
           <ServiceCard />
 
         </div>
-        <h2 className=' mt-20  text-center text-[1rem] md:text-xl font-semibold text-gray-600'>Discover our range of car rental services designed to meet every travel need, offering reliable vehicles, flexible rental plans, and a seamless booking experience.
+        <h2 className=' mt-20  text-center text-[1rem] md:text-xl font-semibold text-gray-300'>Discover our range of car rental services designed to meet every travel need, offering reliable vehicles, flexible rental plans, and a seamless booking experience.
         </h2>
       </div>
     </section>

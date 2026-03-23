@@ -52,12 +52,12 @@ export default function AboutTab() {
   const ActiveIcon = content[active].icon;
 
   return (
-    <section className="w-full py-20 bg-white">
+    <section className="w-full py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Tabs */}
         <div className="flex justify-center mb-14">
-          <div className="flex gap-3 bg-orange-50 p-2 rounded-full">
+          <div className="flex gap-3 bg-black/70 p-2 rounded-full">
             {Object.keys(content).map((key) => (
               <button
                 key={key}
@@ -67,7 +67,7 @@ export default function AboutTab() {
                 className={`px-6 py-2 cursor-pointer text-sm md:text-xl rounded-full font-bold transition-all
                   ${active === key
                     ? "bg-[#FF3600] text-white"
-                    : "bg-white text-gray-800 hover:bg-orange-100"
+                    : "bg-white text-black hover:bg-orange-100"
                   }
                 `}
               >
@@ -87,11 +87,11 @@ export default function AboutTab() {
               {content[active].label}
             </p>
 
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-snug">
+            <h2 className="text-4xl font-bold text-gray-300 mb-6 leading-snug">
               {content[active].title}
             </h2>
 
-            <p className="text-gray-600 mb-10">
+            <p className="text-gray-300 mb-10">
               {content[active].description}
             </p>
 
@@ -99,7 +99,7 @@ export default function AboutTab() {
               {content[active].points.map((point, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <CheckCircle className="text-[#FF3600] w-6 h-6" />
-                  <span className="text-gray-800 font-medium">{point}</span>
+                  <span className="text-gray-400 font-medium">{point}</span>
                 </li>
               ))}
             </ul>

@@ -60,14 +60,15 @@ export default function Hero() {
   return (
     <>
       <br />
-      <section className=" mt-17 flex-col  w-full h-[140vh] lg:h-[145vh]   overflow-hidden flex items-center justify-center">
+      <section className=" mt-17 flex-col  w-full h-[118vh] md:h-[140vh] lg:h-[145vh]   overflow-hidden flex items-center justify-center">
+
         <div className="relative flex-col  flex items-center justify-center h-full w-full">
           {/* Overlay Text */}
           <div
             ref={textRef}
-            className="absolute inset-0  h-fit flex flex-col justify-center items-center  md:justify-start top-5 md:top-30 z-20"
+            className="absolute inset-0  h-fit flex flex-col justify-center items-center  md:justify-start top-20 md:top-30 z-20"
           >
-            <h1 className=" text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i>  Welcome To Aaradhya Tours & Travels</h1>
+            <h1 className=" text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i>  Welcome To Aaradhya Tour & Travels</h1>
             <h1 className=" font-ubuntu font-semibold  text-3xl md:text-4xl lg:text-7xl text-white drop-shadow-lg mt-10">
               Affordable Car Rentals
             </h1>
@@ -78,7 +79,7 @@ export default function Hero() {
             <h1 className="font-ubuntu font-medium text-center  text-xl  text-white drop-shadow-lg mt-10">Reliable and affordable car rentals for weekends, business trips, or daily rides. Book your car today!</h1>
 
             <div className=" lg:mt-32 relative z-[9999] w-32 h-8 flex items-center justify-center">
-              <Link  className=" mt-32 md:mt-56  absolute z-[9999]" href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
+              <Link  className=" mt-32 md:mt-96 lg:mt-72  absolute z-[9999]" href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
                 onMouseLeave={() => window.cursor?.leave()} className=" active:bg-black h-14 w-44 rounded-2xl bg-[#FF3600] cursor-pointer hover:bg-black transition-all ease-in-out flex items-center justify-center">
                 <h1 className=" font-semibold text-white">Book Now</h1>
               </button>
@@ -99,14 +100,23 @@ export default function Hero() {
           {/* Image */}
           <div className=" flex items-center justify-center flex-col  w-full h-full">
             <div ref={imgRef} className=" relative flex items-center flex-col justify-center inset-0 h-full w-full lg:w-[95%]">
-              <Image
+              <video
+               src="/vid.mp4"
+               autoPlay
+               muted
+               loop
+                alt={`Banner `}
+                
+                className="object-cover brightness-80 h-full w-full pointer-events-none lg:rounded-[3rem] "
+              
+              />
+              {/* <Image
                 src={bn1}
                 alt={`Banner `}
                 fill
                 className="object-cover brightness-40 h-full w-full pointer-events-none lg:rounded-[3rem] "
-
-              />
-              <div className=" bg-white z-[99999] flex absolute bottom-10 lg:rounded-[3rem] h-fit  w-fit">
+              /> */}
+              <div className=" z-[99999] flex absolute bottom-0 md:bottom-10  lg:rounded-[3rem] h-fit  w-fit">
 
                 <Form />
 

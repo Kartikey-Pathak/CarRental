@@ -1,13 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminPanel from "./AdminPanel";
 import Login from "../login/page";
 
 export default function Admin() {
-  const [loggedIn, setLoggedIn] = useState(
-    document.cookie.includes("token=") // initial check
-  );
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  // check cookies only on client
+  useEffect(() => {
+    if (document.cookie.includes("token=")) {
+      setLoggedIn(true);
+    }
+  }, []);
 
   return loggedIn ? (
     <AdminPanel />
