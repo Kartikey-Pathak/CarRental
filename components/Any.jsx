@@ -8,24 +8,26 @@ import Card from "./Card";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Any() {
+export default function Any({ packages }) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
-  const [packages, setPackages] = useState([]);
+ 
+  
+  //Setted this on home only***
 
   // ✅ Fetch cars from /api/cars
-  useEffect(() => {
-    async function fetchPackages() {
-      try {
-        const res = await fetch("/api/cars");
-        const data = await res.json();
-        setPackages(data); // no filtering
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      }
-    }
-    fetchPackages();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchPackages() {
+  //     try {
+  //       const res = await fetch("/api/cars");
+  //       const data = await res.json();
+  //       setPackages(data); // no filtering
+  //     } catch (error) {
+  //       console.error("Error fetching cars:", error);
+  //     }
+  //   }
+  //   fetchPackages();
+  // }, []);
 
   // ✅ GSAP animations
   useGSAP(() => {
