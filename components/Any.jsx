@@ -78,7 +78,7 @@ export default function Any({ packages }) {
 
         <div ref={sectionRef} className="opacity-0 w-full flex justify-center">
           <div className="w-full  md:w-[90%] grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 place-items-center">
-            {packages.length > 0 ? (
+            {packages?.length > 0 ? (
               packages.map((pkg) => (
                 <Card
                   key={pkg._id}
