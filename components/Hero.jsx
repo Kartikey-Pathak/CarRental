@@ -70,14 +70,15 @@ export default function Hero() {
           >
             <h1 className=" text-[1rem] md:text-xl font-bold text-[#FF3600]"><i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i>  Welcome To Aaradhya Tour & Travels</h1>
             <h1 className=" font-ubuntu font-semibold  text-3xl md:text-4xl lg:text-7xl text-white drop-shadow-lg mt-10">
-              Affordable Car Rentals
+              Car Rental in Varanasi
             </h1>
-            <h1 className="font-ubuntu font-semibold  text-4xl lg:text-7xl text-white drop-shadow-lg mt-3">
-              For Every Journey
+            <h1 className="font-ubuntu font-semibold  text-center text-4xl lg:text-7xl text-white drop-shadow-lg mt-3">
+              Affordable Cab Services
             </h1>
 
-            <h1 className="font-ubuntu font-medium text-center  text-xl  text-white drop-shadow-lg mt-10">Reliable and affordable car rentals for weekends, business trips, or daily rides. Book your car today!</h1>
-
+            <h2 className="font-ubuntu font-medium text-center  text-xl  text-white drop-shadow-lg mt-10">Book Trusted Cabs for Local, Airport & Outstation Travel</h2>
+             
+             
             <div className=" lg:mt-32 relative z-[9999] w-32 h-8 flex items-center justify-center">
               <Link className=" mt-32 md:mt-96 lg:mt-72  absolute z-[9999]" href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
                 onMouseLeave={() => window.cursor?.leave()} className=" active:bg-black h-14 w-44 rounded-2xl bg-[#FF3600] cursor-pointer hover:bg-black transition-all ease-in-out flex items-center justify-center">
@@ -100,7 +101,7 @@ export default function Hero() {
           {/* Image */}
           <div className=" flex items-center justify-center flex-col  w-full h-full">
             <div ref={imgRef} className=" relative flex items-center flex-col justify-center inset-0 h-full w-full lg:w-[95%]">
-              <video
+              {/* <video
                 src="https://res.cloudinary.com/dkxoayrd0/video/upload/v1774248249/vid_n58ab6.mp4"
                 autoPlay
                 playsInline
@@ -114,13 +115,13 @@ export default function Hero() {
 
                 className="object-cover brightness-80 h-full w-full pointer-events-none lg:rounded-[3rem] "
 
-              />
-              {/* <Image
+              /> */}
+              <Image
                 src={bn1}
-                alt={`Banner `}
+                alt="Car rental in Varanasi - Aaradhya Tour & Travels taxi service"
                 fill
                 className="object-cover brightness-40 h-full w-full pointer-events-none lg:rounded-[3rem] "
-              /> */}
+              />
               <div className=" z-[99999] flex absolute bottom-0 md:bottom-10  lg:rounded-[3rem] h-fit  w-fit">
 
                 <Form />

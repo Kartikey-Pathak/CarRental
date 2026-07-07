@@ -69,7 +69,7 @@ function Section() {
       className="w-full items-center flex justify-center mt-20 px-4"
     >
       <div className=" w-full lg:w-[95%] flex items-center justify-center flex-col">
-      <div className="w-full  py-16 bg-[#191919] rounded-[2rem] text-center">
+      <div className="w-full  py-16 bg-[#FFF8F6] rounded-[2rem] text-center">
 
         {/* Small Heading */}
         <p className="text-sm md:text-base font-semibold text-[#FF3600] tracking-widest">
@@ -79,7 +79,7 @@ function Section() {
         {/* Main Heading */}
         <h1
           ref={txt}
-          className="mt-4 text-2xl md:text-5xl font-bold text-white px-4 md:px-10 leading-tight"
+          className="mt-4 text-2xl md:text-5xl font-bold text-black px-4 md:px-10 leading-tight"
         >
           Book Popular Destinations in Varanasi
         </h1>

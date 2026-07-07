@@ -21,6 +21,24 @@ export default async function sitemap() {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
     },
+
+    // ✅ ADD THESE (THIS IS ALL YOU NEED)
+    {
+      url: `${baseUrl}/car-rental-in-varanasi`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/taxi-service-in-varanasi`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/airport-taxi-varanasi`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/outstation-cab-varanasi`,
+      lastModified: new Date(),
+    },
   ];
 
   // 🔹 Dynamic car routes

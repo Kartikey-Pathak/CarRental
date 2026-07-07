@@ -26,12 +26,12 @@ function Nav({ open, setOpen }) {
   };
 
   return (
-    <nav className=" absolute top-0 z-50 w-full flex h-17 items-center bg-black">
+    <nav className=" absolute top-0 z-50 w-full flex h-17 items-center bg-white">
       {isDesktop ? (
         <div className="flex justify-between items-center h-20  w-full px-10">
           {/* Logo */}
           <div className="flex items-center cursor-pointer  h-fit ">
-            <a href="/" className=" h-full text-white flex items-center justify-center mt-5">
+            <a href="/" className=" h-full text-black flex items-center justify-center mt-5">
               <img
                 src="/logo.png"
                 alt="Logo"
@@ -46,7 +46,7 @@ function Nav({ open, setOpen }) {
               <Link
                 href="/"
                 className={`  font-semibold text-xl shrink-0 hover:text-[#FF3600]/80  transition-all ${
-                  pathname === "/" ? "text-[#FF3600] underline" : "text-white"
+                  pathname === "/" ? "text-[#FF3600] underline" : "text-black"
                 }`}
               >
                 Home
@@ -56,7 +56,7 @@ function Nav({ open, setOpen }) {
               <Link
                 href="/about"
                 className={` font-semibold shrink-0 text-xl hover:text-[#FF3600]/80  transition-all ${
-                  pathname === "/about" ? "text-[#FF3600] underline" : "text-white"
+                  pathname === "/about" ? "text-[#FF3600] underline" : "text-black"
                 }`}
               >
                 About
@@ -66,7 +66,7 @@ function Nav({ open, setOpen }) {
               <Link
                 href="/rent"
                 className={` shrink-0  font-semibold text-xl hover:text-[#FF3600]/80  transition-all ${
-                  pathname === "/rent" ? "text-[#FF3600] underline" : "text-white"
+                  pathname === "/rent" ? "text-[#FF3600] underline" : "text-black"
                 }`}
               >
                 Rent a Car
@@ -76,7 +76,7 @@ function Nav({ open, setOpen }) {
               <Link
                 href="/contact"
                 className={` shrink-0  font-semibold text-xl hover:text-[#FF3600]/80  transition-all ${
-                  pathname === "/contact" ? "text-[#FF3600] underline" : "text-white"
+                  pathname === "/contact" ? "text-[#FF3600] underline" : "text-black"
                 }`}
               >
                 Contact Us
@@ -95,7 +95,7 @@ function Nav({ open, setOpen }) {
           </Link>
         </div>
       ) : (
-        <div className="flex justify-between items-center h-24 mt-5 w-full px-5 backdrop-blur-2xl ">
+        <div className="flex bg-white justify-between items-center h-24 mt-5 w-full px-5 backdrop-blur-2xl ">
           {/* Logo */}
           <div className="flex items-center justify-center h-full w-[10rem]">
             <a href="/" className=" flex items-center justify-center">
@@ -112,9 +112,9 @@ function Nav({ open, setOpen }) {
             {/* Dropdown */}
             <summary
               onClick={() => setOpen(true)}
-              className="btn text-white bg-transparent border-none shadow-none"
+              className="btn text-black bg-transparent border-none shadow-none"
             >
-              <i className="fa-solid fa-bars text-white text-2xl"></i>
+              <i className="fa-solid fa-bars text-black text-2xl"></i>
             </summary>
           </div>
         </div>

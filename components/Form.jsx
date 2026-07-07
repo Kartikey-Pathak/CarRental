@@ -36,7 +36,7 @@ function Form() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-6xl mx-auto  backdrop-blur-sm  md:backdrop-blur-xl lg:rounded-4xl shadow-md px-6 py-4 flex flex-wrap items-center gap-4"
+      className="w-full max-w-6xl mx-auto  backdrop-blur-sm  md:backdrop-blur-4xl lg:rounded-4xl shadow-md px-6 py-4 flex flex-wrap items-center gap-4"
     >
       {/* Left Text */}
       <div className="text-lg font-semibold text-white min-w-[200px]">

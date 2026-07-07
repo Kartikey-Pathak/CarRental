@@ -1,16 +1,38 @@
+  import Link from "next/link";
 export default function HomeSeoContent() {
   return (
     <div className=" flex items-center mt-10 justify-center">
-      <section className="w-full lg:w-[95%] lg:rounded-[3rem] flex items-center justify-center flex-col bg-[#191919] px-4 md:px-10 py-16">
-        <h2 className=" mt-5 text-[1rem] mb-5 md:text-xl font-bold text-[#FF3600]">
+      <section className="w-full lg:w-[95%] lg:rounded-[3rem] flex items-center justify-center flex-col bg-[#FFF8F6] px-4 md:px-10 py-16">
+        <h1 className=" mt-5 text-[1rem] mb-5 md:text-xl font-bold text-[#FF3600]">
           <i className="fa-solid fa-asterisk text-xl font-bold text-[#FF3600]"></i>{" "}
           Car Rental & Taxi Services in Varanasi
-        </h2>
+        </h1>
 
-        <div className="max-w-5xl mx-auto text-white leading-7">
-          <h2 className="text-3xl font-bold text-white mb-4">
+        <div className="max-w-5xl mx-auto text-black leading-7">
+          <h2 className="text-3xl font-bold text-black mb-4">
             Aaradhya Tour And Travels - Trusted Car Rental & Taxi Service in Varanasi
           </h2>
+
+        
+
+          <p className="mb-4">
+            We provide the best{" "}
+            <Link href="/car-rental-in-varanasi" className="text-[#FF3600] underline">
+              car rental in Varanasi
+            </Link>{" "}
+            along with{" "}
+            <Link href="/taxi-service-in-varanasi" className="text-[#FF3600] underline">
+              taxi services
+            </Link>
+            , including{" "}
+            <Link href="/airport-taxi-varanasi" className="text-[#FF3600] underline">
+              airport taxi
+            </Link>{" "}
+            and{" "}
+            <Link href="/outstation-cab-varanasi" className="text-[#FF3600] underline">
+              outstation cab booking
+            </Link>.
+          </p>
 
           <p className="mb-4">
             Aaradhya Tour And Travels is a reliable car rental and taxi service provider

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FlipWord } from "./FlipWord";
+import HoverButton from "./HoverButton";
 const Last = () => {
     return (
         <div className="w-full flex justify-center bg-black px-4 py-10">
@@ -30,14 +31,14 @@ const Last = () => {
 
                     {/* LEFT TEXT */}
                     <div className="max-w-xl text-white">
-                        <FlipWord/>
+                        <FlipWord />
 
                         {/* BUTTONS */}
                         <div className="mt-8 flex items-center gap-4">
-                            <Link href="/contact"><button onMouseEnter={() => window.cursor?.enter()}
-                                onMouseLeave={() => window.cursor?.leave()} className="bg-[#FF3600] cursor-pointer hover:bg-[#FF3600]/60 active:bg-[#FF3600]/60 transition text-white font-semibold px-6 py-3 rounded-full">
-                                Contact Us
-                            </button></Link>
+                            <Link href="/contact">
+                                <HoverButton>Contact Us</HoverButton>
+                            </Link>
+                            
 
                         </div>
                     </div>

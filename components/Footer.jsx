@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="relative w-full lg:w-[95%] rounded-none lg:rounded-[40px] overflow-hidden">
 
         {/* Background Gradient */}
-        <div  className="absolute inset-0 bg-gradient-to-br  from-black via-[#0f0f0f] to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br  from-black via-[#0f0f0f] to-black"></div>
 
         {/* Glow Effects */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl"></div>
@@ -23,20 +23,21 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <h2 className="text-2xl font-bold">
-            <span className="text-[#FF3600]">ARADHYA TOUR</span> AND TRAVELS
-          </h2>
+                <span className="text-[#FF3600]">ARADHYA TOUR</span> AND TRAVELS
+              </h2>
               <p className="text-gray-400 mt-4">
                 Experience the comfort and reliability of traveling with Aaradhya Tour & Travels.
               </p>
             </div>
 
             {/* Legal Policy */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Legal Policy</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Terms & Conditions</li>
-                <li>Privacy Policy</li>
-              </ul>
+            <div className=" flex flex-col gap-2">
+              <h3 className="text-lg font-semibold mb-4">Links</h3>
+
+              <Link href="/car-rental-in-varanasi">Car Rental in Varanasi</Link>
+              <Link href="/taxi-service-in-varanasi">Taxi Service</Link>
+              <Link href="/airport-taxi-varanasi">Airport Taxi</Link>
+
             </div>
 
             {/* Quick Links */}
@@ -58,11 +59,11 @@ const Footer = () => {
 
               <div className="flex items-center">
                 {/* Email Input */}
-                  <p className="text-gray-400 mt-4">Email : <a href="mailto:rajat6427@gmail.com" className="text-orange-500 hover:underline">
-                  
-                rajat6427@gmail.com</a>
-              </p>
-              
+                <p className="text-gray-400 mt-4">Email : <a href="mailto:rajat6427@gmail.com" className="text-orange-500 hover:underline">
+
+                  rajat6427@gmail.com</a>
+                </p>
+
               </div>
             </div>
           </div>
@@ -76,6 +77,13 @@ const Footer = () => {
               © 2025 Aaradhya Tour & Travels. All rights reserved.
             </p>
 
+            <p className="text-gray-400">
+              Website designed & developed by <br/>
+              <a className=" text-orange-500 underline" href="https://www.linkedin.com/in/kartikey-pathakb580297/" target="_blank" rel="noopener">
+                Kartikey Pathak
+              </a>
+            </p>
+
             <div className="flex gap-4">
               <SocialIcon link="https://www.youtube.com">
                 <FaYoutube />
@@ -83,7 +91,7 @@ const Footer = () => {
               <SocialIcon link="https://www.facebook.com">
                 <FaFacebookF />
               </SocialIcon>
-              <SocialIcon link="https://www.instagram.com">
+              <SocialIcon link="https://www.instagram.com/aaradhyatourandtravels/">
                 <FaInstagram />
               </SocialIcon>
             </div>
